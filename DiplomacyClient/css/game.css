@@ -63,6 +63,7 @@ div#map {
     border: 0;
     float: left;
     background-color: bisque;
+    overflow: auto;
 }
 
 div#orders {
