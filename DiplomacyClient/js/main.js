@@ -2,10 +2,9 @@
 /// <reference path="require-jquery.intellisense.js" />
 
 
-require(["jquery", "jquery-ui-1.9.0"], function ($) {
+require(["jquery", "jquery-ui-1.9.0", 'game/jquery-diplomacy'], function ($) {
 
     $(document).ready(function() {
-        $("#test").append('<p>Hello from require-jquery and main!</p>');
-        $("#dialogTest").dialog();
+        $("#topbar").diplomacyTopBar();
     });
 });
