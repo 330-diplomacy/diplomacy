@@ -95,14 +95,7 @@ class gameInfo
     public $boardInfo;
     public $playerList;
     public $state;
-    
-    public function __construct($GID)
-    {
-        $this->boardInfo = getBoard($GID);
-        $this->playerList = getPlayers($GID);
-        $this->state = getState($GID);
-    }
-    
+        
     function getBoard($gameID)
     {
         global $mysqli;
@@ -228,6 +221,13 @@ class gameInfo
         $fetch();
         
         return new stateInfo($name, $phase, $path, $xdim, $ydim);
+    }
+    
+    public function __construct($GID)
+    {
+        $this->boardInfo = getBoard($GID);
+        $this->playerList = getPlayers($GID);
+        $this->state = getState($GID);
     }
 }
 
