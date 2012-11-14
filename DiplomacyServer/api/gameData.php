@@ -203,7 +203,7 @@ function getState($gameID)
     $info->fetch();
     
     $variantData = $mysqli->prepare("SELECT path, x_dimension, y_dimension FROM variants WHERE name=?");
-    if(!$info)
+    if(!$variantData)
     {
         $err = "Query Prep Failed: ";
         $err .= $mysqli->error;
