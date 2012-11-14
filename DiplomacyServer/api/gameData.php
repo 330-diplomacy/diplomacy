@@ -94,7 +94,7 @@ function getBoard($gameID)
 {
     global $mysqli;
     
-    $provlist = $mysqli->preapre("SELECT name, abrv, type FROM provinces WHERE gameid=?");
+    $provlist = $mysqli->prepare("SELECT name, abrv, type FROM provinces WHERE gameid=?");
     if(!$provlist)
     {
         $err = "Query Prep Failed: ";
