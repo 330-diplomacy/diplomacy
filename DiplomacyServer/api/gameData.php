@@ -137,7 +137,7 @@ function getBoard($gameID)
     }    
     
     $unitlist->bind_param("i", $gameID);
-    $unitlist->execute;
+    $unitlist->execute();
     
     $unitlist->bind_result($type, $power, $loc);
     $units;
@@ -178,7 +178,7 @@ function getPlayers($gameID)
         $players[] = $temp;
     }
     
-    return new playerslist($players);        
+    return new playerList($players);        
 }
 
 function getState($gameID)
