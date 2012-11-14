@@ -200,7 +200,7 @@ function getState($gameID)
     $info->execute();
     
     $info->bind_result($name, $phase, $variant);
-    $fetch();
+    $info->$fetch();
     
     $variantData = $mysqli->prepare("SELECT path, x_dimension, y_dimension FROM variants WHERE name=?");
     if(!$info)
