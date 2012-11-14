@@ -1,6 +1,8 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-require_once("$root/diplomacy/resource/playerclass.php");
+require_once("$root/diplomacy/DiplomacyServer/resource/playerclass.php");
+require_once("$root/diplomacy/DiplomacyServer/resource/provinceclass.php");
+require_once("$root/diplomacy/DiplomacyServer/resource/unitclass.php");
 
 // takes in an array. Index 0 is the number of powers, then 1 - n are the countries in the
 // form name number color. Returns an array of Player objects with null names and playerIDs
@@ -92,20 +94,48 @@ function registerProvinces($provArray)
             }
         }
         $prov = new province($name, $abrv, $type, $isDepot, $homedepot, $land, $water1, $water2);
-        $provinces[] = $prov;
+        $provinces[$name] = $prov;
     }
     
+    return $provinces;
 }
 
-function startingPos($starting)
+function startingPos($starting, $provinces)
 {
+    $count = $starting[0];
+    $pieces;
+    $units;
+    for($i=1; $i <= $count; $i++)
+    {
+        $pieces = explode(" ", $starting[$i]);
+        
+        $type = $pieces[0];
+        $owner = $pieces[1];
+        $location = $pieces[2];
+        
+        if($type == "F")
+        {
+            $type == 1;
+        }
+        else
+        {
+            $type == 0;
+        }
+        
+
+        $temp = new unit($type, $owner, $location);
+        $provinces[$location]->unit=$temp;
+        $units[] = $temp;  
+    }
     
+    return $units;
 }
 
-function map($name)
+function mapprocess($name)
 {
     if(file_exists("$root/diplomacy/maps/$name/$name.txt"))
     {
+        $ans;
         $file = fopen("$root/diplomacy/maps/$name/$name.txt", r);
         $plcount = $file->getLine();
         $plarray[0] = $plcount;
@@ -116,6 +146,7 @@ function map($name)
         }
         
         $countries = registerPowers($plarray);
+        $ans[] = $countries;
         
         $prcount = $file->getLine();
         $prarray[0] = $prcount;
@@ -126,6 +157,7 @@ function map($name)
         }
         
         $provinces = registerProvinces($prarray);
+        $ans[] = $provinces;
         
         $scount = $file->getLine();
         $sarray[0] = $scount;
@@ -136,6 +168,10 @@ function map($name)
         }
         
         $starting = startingPos($sarray);
+        
+        $ans[] = $starting;
+       
+        return $ans;
         
     }
     else

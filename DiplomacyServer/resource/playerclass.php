@@ -1,6 +1,7 @@
 <?php
 
-class player{
+class player
+{
     public $name;
     public $id;
     public $power;

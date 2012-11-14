@@ -1,6 +1,7 @@
 <?php
 
-class unit{
+class unit
+{
     public $type;
     public $ownerint;
     public $location;
