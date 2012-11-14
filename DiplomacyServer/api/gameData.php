@@ -96,7 +96,7 @@ class gameInfo
     public $playerList;
     public $state;
         
-    function getBoard($gameID)
+    public function getBoard($gameID)
     {
         global $mysqli;
         
@@ -152,7 +152,7 @@ class gameInfo
         return new board($provinces, $units);       
     }
     
-    function getPlayers($gameID)
+    public function getPlayers($gameID)
     {
         global $mysqli;
         
@@ -182,7 +182,7 @@ class gameInfo
         return new playerslist($players);        
     }
     
-    function getState($gameID)
+    public function getState($gameID)
     {
         global $mysqli;
         
