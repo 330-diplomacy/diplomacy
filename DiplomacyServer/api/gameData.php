@@ -218,7 +218,7 @@ function getState($gameID)
     $variantData->bind_param("s", $variant);
     $variantData->execute();
     
-    $variantData->bind_results($path, $xdim, $ydim);
+    $variantData->bind_result($path, $xdim, $ydim);
     $fetch();
     
     return new stateInfo($name, $phase, $path, $xdim, $ydim);
