@@ -94,4 +94,6 @@ function newGame($name, $variant)
 $name = $_POST["name"];
 $var = $_POST["variant"];
 
+newGame($name, $var);
+
 ?>
