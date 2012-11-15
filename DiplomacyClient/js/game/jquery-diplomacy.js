@@ -1,14 +1,8 @@
 ﻿/// <reference path="../jquery-1.8.2.intellisense.js" />
 /// <reference path="../require-jquery.intellisense.js" />
 
-define(['jquery', '../jquery-ui-1.9.0', 'text!game/templates/topBar.html', 'text!game/templates/map.html'], function ($, jqueryUI, topBarTemplate, gameMapTemplate) {
-
-    var DiplomacyGame = {};
-
-    DiplomacyGame.ready = false;
-    
-    
-    
+define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function ($, jqueryUI, DiplomacyGame) {
+   
     // Each of these functions should probably do a this.each() - but we're not going to.
     
     $.fn.diplomacyTopBar = function() {
@@ -48,39 +42,4 @@ define(['jquery', '../jquery-ui-1.9.0', 'text!game/templates/topBar.html', 'text
         // Setup jquery on this div.
     };
 
-    DiplomacyGame.urlParams = {};
-    // Copied from: http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values
-    (function () {
-        var match,
-            pl = /\+/g,  // Regex for replacing addition symbol with a space
-            search = /([^&=]+)=?([^&]*)/g,
-            decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-            query = window.location.search.substring(1);
-
-        while (match = search.exec(query))
-            DiplomacyGame.urlParams[decode(match[1])] = decode(match[2]);
-    })();
-    
-    //console.log("gameID: " + DiplomacyGame.urlParams['gameID']);
-    
-
-    $.ajax({
-        url: "/api/gameData.php",
-        data: {
-            gameID: DiplomacyGame.urlParams['gameID']
-        }
-    }).done(function(gameData) {
-        DiplomacyGame.mapData = gameData.map;
-        DiplomacyGame.playerData = gameData.playerList;
-        DiplomacyGame.gameState = gameData.state;
-        
-        DiplomacyGame.htmlTemplates = {};
-        DiplomacyGame.htmlTemplates.topBar = topBarTemplate.replace('%GAMENAME%', DiplomacyGame.gameState.gameName).replace('%GAMEPHASE%', DiplomacyGame.gameState.phase);
-        DiplomacyGame.htmlTemplates.gameMap = gameMapTemplate.replace('%MAPURL%', DiplomacyGame.mapData.url).replace('%MAPWIDTH%', DiplomacyGame.mapData.width).replace('%MAPHEIGHT%', DiplomacyGame.mapData.height);
-
-    }).fail(function(errorData) {
-        
-    });
-
-    return DiplomacyGame;
 });
