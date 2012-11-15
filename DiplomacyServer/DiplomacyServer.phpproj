@@ -17,6 +17,46 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="api\users\register.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="createGame.php">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="index.php" />
+    <Compile Include="mapparse.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resource\database.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resource\playerclass.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resource\provinceclass.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resource\unitclass.php">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resource\Maps\standard\standard.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="resource\Maps\standard\standard_config.txt">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="standard.gif">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="api" />
+    <Folder Include="api\game" />
+    <Folder Include="api\users" />
+    <Folder Include="resource" />
+    <Folder Include="resource\Maps\" />
+    <Folder Include="resource\Maps\standard\" />
   </ItemGroup>
 </Project>
