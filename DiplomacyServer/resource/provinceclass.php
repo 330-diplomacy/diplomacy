@@ -1,6 +1,7 @@
 <?php
 
-class province{
+class province
+{
     
     public $name;
     public $abrv;
