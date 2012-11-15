@@ -11,7 +11,7 @@ function newGame($name, $variant)
     
     $info = mapprocess($variant);
     
-    $owner = $_SESSION["ownerid"];
+    $owner = $_SESSION["5000"];
     $phase = "WFPl";
     
     $addGame = $mysqli->prepare("INSERT INTO games (name, phase, owner, variant) VALUES (?, ?, ?, ?)");
@@ -91,6 +91,9 @@ function newGame($name, $variant)
     
 }
 
-newGame("Testgame", "Standard");
+$name = $_POST["name"];
+$var = $_POST["variant"];
+
+newGame($name, $var);
 
 ?>
