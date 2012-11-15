@@ -9,6 +9,11 @@
     <!-- important to be opened by PHP Tools, when also Phalanger Tools are installed -->
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
     <AssemblyName>DiplomacyServer</AssemblyName>
+    <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+    <Server>PHPDev</Server>
+    <PHPDevAutoPort>True</PHPDevAutoPort>
+    <PHPDevPort>51977</PHPDevPort>
+    <IISProjectUrl>http://localhost:40233/</IISProjectUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <IncludeDebugInformation>true</IncludeDebugInformation>
@@ -17,16 +22,25 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="api\gameData.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="api\game\create.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="api\game\mapparse.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="api\users\login.php">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="api\users\register.php">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="createGame.php">
+    <Compile Include="api\users\validate.php">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="index.php" />
-    <Compile Include="mapparse.php">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="resource\database.php">
       <SubType>Code</SubType>
     </Compile>
