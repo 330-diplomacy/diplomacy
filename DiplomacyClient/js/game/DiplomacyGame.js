@@ -2,48 +2,57 @@
 
 define(['jquery', 'text!game/templates/topBar.html', 'text!game/templates/map.html', 'text!game/templates/orders.html'], function ($, topBarTemplate, gameMapTemplate, ordersTemplate) {
 
-    var DiplomacyGame = {};
+    function mapGameData(dg) {
+        return function (gameData) {
+            dg.mapData = gameData.boardInfo;
+            dg.playerData = gameData.playerList;
+            dg.gameState = gameData.state;
 
-    DiplomacyGame.ready = false;
+            dg.htmlTemplates = {};
+            dg.htmlTemplates.topBar = topBarTemplate.replace('%GAMENAME%', dg.gameState.gameName).replace('%GAMEPHASE%', dg.gameState.phase);
+            dg.htmlTemplates.gameMap = gameMapTemplate.replace('%MAPURL%', dg.mapData.url).replace('%MAPWIDTH%', dg.mapData.width).replace('%MAPHEIGHT%', dg.mapData.height);
+            dg.htmlTemplates.gameOrders = ordersTemplate;
+            dg.ready = true;
+            console.log(dg);
+            dg.readyCallback();
+            $.event.trigger({
+                type: "diplomacy-gameLoaded",
+                message: dg,
+                time: new Date()
+            });
+        };
+    }
     
-    DiplomacyGame.urlParams = {};
-    
-    // Copied from: http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values
-    (function () {
-        var match,
-            pl = /\+/g,  // Regex for replacing addition symbol with a space
-            search = /([^&=]+)=?([^&]*)/g,
-            decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-            query = window.location.search.substring(1);
+    function DiplomacyGame(readyCallback) {
+        this.ready = false;
+        
+        this.urlParams = {};
+        this.readyCallback = readyCallback;
+        
+        // Copied from: http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values
+        (function (dg) {
+            var match,
+                pl = /\+/g,  // Regex for replacing addition symbol with a space
+                search = /([^&=]+)=?([^&]*)/g,
+                decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+                query = window.location.search.substring(1);
 
-        while (match = search.exec(query))
-            DiplomacyGame.urlParams[decode(match[1])] = decode(match[2]);
-    })();
-
-    //console.log("gameID: " + DiplomacyGame.urlParams['gameID']);
-
-
-    $.ajax({
+            while (match = search.exec(query))
+                dg.urlParams[decode(match[1])] = decode(match[2]);
+        })(this);
+        
+        $.ajax({
         url: 'http://ec2-23-20-199-252.compute-1.amazonaws.com/diplomacy/DiplomacyServer/api/gameData.php',
         type: 'POST',
+        dataType: 'json',
         data: {
-            gameID: DiplomacyGame.urlParams['gameID']
+            gameID: this.urlParams['gameID']
         }
-    }).done(function (gameData) {
-        DiplomacyGame.mapData = gameData.map;
-        DiplomacyGame.playerData = gameData.playerList;
-        DiplomacyGame.gameState = gameData.state;
-
-        DiplomacyGame.htmlTemplates = {};
-        DiplomacyGame.htmlTemplates.topBar = topBarTemplate.replace('%GAMENAME%', DiplomacyGame.gameState.gameName).replace('%GAMEPHASE%', DiplomacyGame.gameState.phase);
-        DiplomacyGame.htmlTemplates.gameMap = gameMapTemplate.replace('%MAPURL%', DiplomacyGame.mapData.url).replace('%MAPWIDTH%', DiplomacyGame.mapData.width).replace('%MAPHEIGHT%', DiplomacyGame.mapData.height);
-        DiplomacyGame.htmlTemplates.gameOrders = ordersTemplate;
-
-
-    }).fail(function (errorData) {
+    }).done(mapGameData(this)).fail(function (errorData) {
 
     });
-
+    }
+    
     return DiplomacyGame;
     
 });
