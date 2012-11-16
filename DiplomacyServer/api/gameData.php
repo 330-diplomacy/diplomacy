@@ -1,6 +1,7 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 require_once("$root/diplomacy/DiplomacyServer/resource/database.php");
+require_once("$root/diplomacy/DiplomacyServer/api/users/validate.php");
 
 header("Access-Control-Allow-Origin: http://lvh.me:12262");
 header("Access-Control-Allow-Credentials: true");
