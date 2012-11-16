@@ -3,26 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "DiplomacyServer", "DiplomacyServer\DiplomacyServer.phpproj", "{9BCFE026-1240-4817-9505-1313093A72C4}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DiplomacyClient", "DiplomacyClient\", "{01EE8498-2CAA-4920-B241-6535483EDA75}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/DiplomacyClient"
-		Debug.AspNetCompiler.PhysicalPath = "DiplomacyClient\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\DiplomacyClient\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/DiplomacyClient"
-		Release.AspNetCompiler.PhysicalPath = "DiplomacyClient\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\DiplomacyClient\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "12262"
-		VWDDynamicPort = "false"
-	EndProjectSection
+Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "DiplomacyClient", "DiplomacyClient\DiplomacyClient.phpproj", "{327D4AB9-8E4A-48DD-AB8D-914BE5E2E5FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,10 +15,10 @@ Global
 		{9BCFE026-1240-4817-9505-1313093A72C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BCFE026-1240-4817-9505-1313093A72C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BCFE026-1240-4817-9505-1313093A72C4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01EE8498-2CAA-4920-B241-6535483EDA75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01EE8498-2CAA-4920-B241-6535483EDA75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01EE8498-2CAA-4920-B241-6535483EDA75}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{01EE8498-2CAA-4920-B241-6535483EDA75}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{327D4AB9-8E4A-48DD-AB8D-914BE5E2E5FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{327D4AB9-8E4A-48DD-AB8D-914BE5E2E5FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{327D4AB9-8E4A-48DD-AB8D-914BE5E2E5FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{327D4AB9-8E4A-48DD-AB8D-914BE5E2E5FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
