@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +13,7 @@
             <div id="login-div"></div>
         </div>
         <div id="matches">
-            <a href="game.html?gameID=7357">YOU JUST LOST THE GAME</a>
+            <a href="game.php?gameID=7357">YOU JUST LOST THE GAME</a>
             <ul id="match-list"></ul>
         </div>
     </body>

@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -6,6 +7,12 @@
     <RootNamespace>DiplomacyClient</RootNamespace>
     <OutputType>Library</OutputType>
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+    <Server>Custom</Server>
+    <PHPDevAutoPort>False</PHPDevAutoPort>
+    <PHPDevPort>12262</PHPDevPort>
+    <IISProjectUrl>http://localhost:12262</IISProjectUrl>
+    <CustomServerUrl>http://lvh.me:12262/</CustomServerUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <IncludeDebugInformation>true</IncludeDebugInformation>
@@ -14,8 +21,8 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="game.html" />
-    <Compile Include="index.html" />
+    <Compile Include="game.php" />
+    <Compile Include="index.php" />
     <Compile Include="packages.config" />
     <Compile Include="Content\themes\base\jquery-ui.css" />
     <Compile Include="Content\themes\base\jquery.ui.accordion.css" />
