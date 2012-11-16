@@ -1,6 +1,7 @@
 <?php
 
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+require_once("$root/diplomacy/DiplomacyServer/resource/database.php");
 require_once("$root/diplomacy/DiplomacyServer/api/game/mapparse.php");
 
 function newGame($name, $variant)
@@ -8,10 +9,11 @@ function newGame($name, $variant)
     global $mysqli;
     
     $variant = "standard"; //for debugging
+    $_SESSION["userID"]="5000";
     
     $info = mapprocess($variant);
     
-    $owner = $_SESSION["5000"];
+    $owner = $_SESSION["userID"];
     $phase = "WFPl";
     
     $addGame = $mysqli->prepare("INSERT INTO games (name, phase, owner, variant) VALUES (?, ?, ?, ?)");
@@ -31,7 +33,7 @@ function newGame($name, $variant)
     $gameID = $mysqli->insert_id;   
     $addGame->close();
     
-    if($mysqli->affected_rows = 0)
+    if($mysqli->affected_rows == 0)
     {
         header("HTTP/1.0 409 Conflict Create Game 1");
         return false;
@@ -57,7 +59,7 @@ function newGame($name, $variant)
         $addProvince->bind_param("issiii", $gameID, $current->name, $curren->abrv, $current->type, $current->isdepot, $current->homedepot);
         $addProvince->execute();
         
-        if($mysqli->affected_rows = 0)
+        if($mysqli->affected_rows == 0)
         {
             header("HTTP/1.0 409 Conflict Create Game 2");
             return false;
@@ -81,7 +83,7 @@ function newGame($name, $variant)
         $addUnit->bind_param("iiii", $current->type, $current->ownerid, $current->locationid, $gameID);
         $addUnit->execute;
         
-        if($mysqli->affected_rows = 0)
+        if($mysqli->affected_rows == 0)
         {
             header("HTTP/1.0 409 Conflict Create Game 3");
             return false;

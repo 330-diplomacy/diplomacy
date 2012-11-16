@@ -133,6 +133,7 @@ function startingPos($starting, $provinces)
 
 function mapprocess($name)
 {
+    global $root;
     if(file_exists("$root/diplomacy/maps/$name/$name.txt"))
     {
         $ans;
