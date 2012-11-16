@@ -58,5 +58,15 @@ function login($username, $pw)
 	}
 }
         
+if(isset($_POST["username"]) && isset($_POST["pw"]))
+{
+	$user=htmlentities($_POST["username"]);
+	$pw=$_POST["pw"];
 
+	login($user, $pw);
+}
+else
+{
+	header("HTTP/1.0 400 Bad Request");
+}
 ?>
