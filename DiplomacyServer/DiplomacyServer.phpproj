@@ -28,6 +28,9 @@
     <Compile Include="api\game\create.php">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="api\game\list.php">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="api\game\mapparse.php">
       <SubType>Code</SubType>
     </Compile>
@@ -42,6 +45,9 @@
     </Compile>
     <Compile Include="index.php" />
     <Compile Include="resource\database.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="resource\Maps\moveclasses.php">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="resource\playerclass.php">

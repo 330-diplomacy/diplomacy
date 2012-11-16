@@ -23,19 +23,22 @@ function validate()
     $claimedName = $_POST["username"];
 
     if(empty($_POST["token"]))
-    {
+    { 
         return false;
     }
     $theirtoken = $_POST["token"];
 
     if(empty($_SESSION["token"]))
     {
+        echo("no token");
         return false;
     }
     $mytoken = $_SESSION["token"];
 
     if($mytoken == $theirtoken)
     {
+        echo("missmatch");
+        echo($mytoken);
         return true;
     }
     return false;
