@@ -40,6 +40,20 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function ($, jque
             this.replaceWith(diplomacyGame.htmlTemplates.gameOrders);
 
             // Setup jquery on this div.
+
+            $.each(diplomacyGame.mapData.provinces, function(index, value) {
+                var htmlString = '<option id="order-dest-prov-' + value.abrv + '" class="order-dest-prov" value="' + value.abrv + '">' + value.name + '</option>';
+                $("#issueOrderDest").append(htmlString);
+                if (value.type === 0) {
+                    $('#order-dest-prov-' + value.abrv).addClass("order-dest-prov-water");
+                }
+                else if (value.type === 1) {
+                    $('#order-dest-prov-' + value.abrv).addClass("order-dest-prov-land");
+                }
+                else if (value.type === 2) {
+                    $('#order-dest-prov-' + value.abrv).addClass("order-dest-prov-coastal");
+                }
+            });
         };
         console.log("Jquery Diplomacy Functions ready!");
     }
