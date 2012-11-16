@@ -8,10 +8,11 @@ function newGame($name, $variant)
     global $mysqli;
     
     $variant = "standard"; //for debugging
+    $_SESSION["userID"]="5000";
     
     $info = mapprocess($variant);
     
-    $owner = $_SESSION["5000"];
+    $owner = $_SESSION["userID"];
     $phase = "WFPl";
     
     $addGame = $mysqli->prepare("INSERT INTO games (name, phase, owner, variant) VALUES (?, ?, ?, ?)");
