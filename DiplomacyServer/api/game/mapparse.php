@@ -137,6 +137,8 @@ function mapprocess($name)
         $ans = array();
         $plarray = array();
         $file = fopen("$root/diplomacy/maps/$name/$name.txt", r);
+        
+        return $file;
         $plcount = $file->getLine();
         $plarray[0] = $plcount;
         for($i = 1; $i <= $pcount; $i++)
