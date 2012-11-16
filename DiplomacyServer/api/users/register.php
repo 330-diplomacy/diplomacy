@@ -10,10 +10,10 @@ header("Access-Control-Allow-Credentials: true");
 
 if(isset($_POST["username"]))
 {
-	if(isset($_POST["pw"]))
+	if(isset($_POST["password"]))
 	{
 		$user=htmlentities($_POST["username"]);
-		$saltedpw=crypt($_POST["pw"]);
+		$saltedpw=crypt($_POST["password"]);
 
 		$stmt = $mysqli->prepare("INSERT IGNORE INTO users (username, saltedPW) VALUES (?, ?)");
 		if(!$stmt)
@@ -31,7 +31,7 @@ if(isset($_POST["username"]))
 
 		if($mysqli->affected_rows > 0)
 		{
-			login($user, $_POST["pw"]);
+			login($user, $_POST["password"]);
 		}
 		else
 		{
