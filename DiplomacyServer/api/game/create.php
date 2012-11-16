@@ -3,6 +3,9 @@
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 require_once("$root/diplomacy/DiplomacyServer/resource/database.php");
 require_once("$root/diplomacy/DiplomacyServer/api/game/mapparse.php");
+require_once("$root/diplomacy/DiplomacyServer/resource/playerclass.php");
+require_once("$root/diplomacy/DiplomacyServer/resource/provinceclass.php");
+require_once("$root/diplomacy/DiplomacyServer/resource/unitclass.php");
 
 function newGame($name, $variant)
 {
@@ -12,6 +15,8 @@ function newGame($name, $variant)
     $_SESSION["userID"]="5000";
     
     $info = mapprocess($variant);
+    echo("info: ");
+    echo($info);
     
     $owner = $_SESSION["userID"];
     $phase = "WFPl";
