@@ -239,11 +239,18 @@ class gameInfo
     }
 }
 
-if(isset($_POST["gameID"]))
+if(validate())
 {
-    $gameInfoTest = new gameInfo($_POST["gameID"]);
-    
-    echo json_encode($gameInfoTest);
+    if(isset($_POST["gameID"]))
+    {
+        $gameInfo = new gameInfo($_POST["gameID"]);
+        
+        echo json_encode($gameInfo);
+    }
+    else
+    {
+        header("HTTP/1.0 400 Bad request");
+    }
 }
 else
 {

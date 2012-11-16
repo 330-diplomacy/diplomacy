@@ -6,6 +6,7 @@ require_once("$root/diplomacy/DiplomacyServer/api/game/mapparse.php");
 require_once("$root/diplomacy/DiplomacyServer/resource/playerclass.php");
 require_once("$root/diplomacy/DiplomacyServer/resource/provinceclass.php");
 require_once("$root/diplomacy/DiplomacyServer/resource/unitclass.php");
+require_once("$root/diplomacy/DiplomacyServer/api/users/validate.php");
 
 function newGame($name, $variant)
 {
@@ -98,9 +99,17 @@ function newGame($name, $variant)
     
 }
 
-$name = $_POST["name"];
-$var = $_POST["variant"];
+if(validate())
+{
 
-newGame($name, $var);
+    $name = $_POST["name"];
+    $var = $_POST["variant"];
+
+    newGame($name, $var);
+}
+else
+{
+    
+}
 
 ?>
