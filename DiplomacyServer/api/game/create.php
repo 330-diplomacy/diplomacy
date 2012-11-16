@@ -33,7 +33,7 @@ function newGame($name, $variant)
     $gameID = $mysqli->insert_id;   
     $addGame->close();
     
-    if($mysqli->affected_rows = 0)
+    if($mysqli->affected_rows == 0)
     {
         header("HTTP/1.0 409 Conflict Create Game 1");
         return false;
@@ -59,7 +59,7 @@ function newGame($name, $variant)
         $addProvince->bind_param("issiii", $gameID, $current->name, $curren->abrv, $current->type, $current->isdepot, $current->homedepot);
         $addProvince->execute();
         
-        if($mysqli->affected_rows = 0)
+        if($mysqli->affected_rows == 0)
         {
             header("HTTP/1.0 409 Conflict Create Game 2");
             return false;
@@ -83,7 +83,7 @@ function newGame($name, $variant)
         $addUnit->bind_param("iiii", $current->type, $current->ownerid, $current->locationid, $gameID);
         $addUnit->execute;
         
-        if($mysqli->affected_rows = 0)
+        if($mysqli->affected_rows == 0)
         {
             header("HTTP/1.0 409 Conflict Create Game 3");
             return false;
