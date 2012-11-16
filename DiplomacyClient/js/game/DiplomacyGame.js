@@ -10,11 +10,11 @@ define(['jquery', 'text!game/templates/topBar.html', 'text!game/templates/map.ht
 
             dg.htmlTemplates = {};
             dg.htmlTemplates.topBar = topBarTemplate.replace('%GAMENAME%', dg.gameState.gameName).replace('%GAMEPHASE%', dg.gameState.phase);
-            dg.htmlTemplates.gameMap = gameMapTemplate.replace('%MAPURL%', dg.mapData.url).replace('%MAPWIDTH%', dg.mapData.width).replace('%MAPHEIGHT%', dg.mapData.height);
+            dg.htmlTemplates.gameMap = gameMapTemplate.replace('%MAPURL%', dg.gameState.url).replace('%MAPWIDTH%', dg.gameState.width).replace('%MAPHEIGHT%', dg.gameState.height);
             dg.htmlTemplates.gameOrders = ordersTemplate;
             dg.ready = true;
             console.log(dg);
-            dg.readyCallback();
+            dg.readyCallback(dg);
             $.event.trigger({
                 type: "diplomacy-gameLoaded",
                 message: dg,
