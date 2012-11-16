@@ -1,0 +1,119 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>DiplomacyClient</Name>
+    <ProjectGuid>{327d4ab9-8e4a-48dd-ab8d-914be5e2e5fe}</ProjectGuid>
+    <RootNamespace>DiplomacyClient</RootNamespace>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="game.html" />
+    <Compile Include="index.html" />
+    <Compile Include="packages.config" />
+    <Compile Include="Content\themes\base\jquery-ui.css" />
+    <Compile Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Compile Include="Content\themes\base\jquery.ui.all.css" />
+    <Compile Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Compile Include="Content\themes\base\jquery.ui.base.css" />
+    <Compile Include="Content\themes\base\jquery.ui.button.css" />
+    <Compile Include="Content\themes\base\jquery.ui.core.css" />
+    <Compile Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Compile Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Compile Include="Content\themes\base\jquery.ui.menu.css" />
+    <Compile Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Compile Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Compile Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Compile Include="Content\themes\base\jquery.ui.slider.css" />
+    <Compile Include="Content\themes\base\jquery.ui.spinner.css" />
+    <Compile Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Compile Include="Content\themes\base\jquery.ui.theme.css" />
+    <Compile Include="Content\themes\base\jquery.ui.tooltip.css" />
+    <Compile Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Compile Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Compile Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Compile Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Compile Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Compile Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Compile Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Compile Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Compile Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Compile Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Compile Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Compile Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Compile Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Compile Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Compile Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Compile Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Compile Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Compile Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Compile Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Compile Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Compile Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Compile Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Compile Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Compile Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Compile Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Compile Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Compile Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Compile Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Compile Include="css\game.css" />
+    <Compile Include="css\index.css" />
+    <Compile Include="img\small-bw.gif" />
+    <Compile Include="js\CookieMap.js" />
+    <Compile Include="js\jquery-1.8.2.intellisense.js" />
+    <Compile Include="js\jquery-ui-1.9.0.js" />
+    <Compile Include="js\main-game.js" />
+    <Compile Include="js\main-index.js" />
+    <Compile Include="js\require-jquery.intellisense.js" />
+    <Compile Include="js\require-jquery.js" />
+    <Compile Include="js\text.js" />
+    <Compile Include="js\game\DiplomacyGame.js" />
+    <Compile Include="js\game\jquery-diplomacy.js" />
+    <Compile Include="js\game\Power.js" />
+    <Compile Include="js\game\Province.js" />
+    <Compile Include="js\game\templates\chat.html" />
+    <Compile Include="js\game\templates\map.html" />
+    <Compile Include="js\game\templates\orders.html" />
+    <Compile Include="js\game\templates\topBar.html" />
+    <Compile Include="js\index\jquery-login.js" />
+    <Compile Include="js\index\jquery-register.js" />
+    <Compile Include="js\index\templates\login.html" />
+    <Compile Include="js\index\templates\register.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content" />
+    <Folder Include="css" />
+    <Folder Include="img" />
+    <Folder Include="js" />
+    <Folder Include="Content\themes" />
+    <Folder Include="Content\themes\base" />
+    <Folder Include="Content\themes\base\images" />
+    <Folder Include="Content\themes\base\minified" />
+    <Folder Include="Content\themes\base\minified\images" />
+    <Folder Include="js\game" />
+    <Folder Include="js\index" />
+    <Folder Include="js\game\templates" />
+    <Folder Include="js\index\templates" />
+  </ItemGroup>
+</Project>
