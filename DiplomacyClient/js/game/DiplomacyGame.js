@@ -1,9 +1,9 @@
 ﻿/// <reference path="../require-jquery.intellisense.js" />
 
-define(['jquery', 'CookieMap', 'text!game/templates/topBar.html', 'text!game/templates/map.html', 'text!game/templates/orders.html'], function ($, cookieMap, topBarTemplate, gameMapTemplate, ordersTemplate) {
+define(['jquery', 'CookieMap', 'text!game/templates/topBar.html', 'text!game/templates/map.html', 'text!game/templates/orders.html'], function($, cookieMap, topBarTemplate, gameMapTemplate, ordersTemplate) {
 
     function mapGameData(dg) {
-        return function (gameData) {
+        return function(gameData) {
             dg.mapData = gameData.boardInfo;
             dg.playerData = gameData.playerList;
             dg.gameState = gameData.state;
@@ -22,19 +22,19 @@ define(['jquery', 'CookieMap', 'text!game/templates/topBar.html', 'text!game/tem
             });
         };
     }
-    
+
     function DiplomacyGame(readyCallback) {
         this.ready = false;
-        
+
         this.urlParams = {};
         this.readyCallback = readyCallback;
-        
+
         // Copied from: http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values
-        (function (dg) {
+        (function(dg) {
             var match,
-                pl = /\+/g,  // Regex for replacing addition symbol with a space
+                pl = /\+/g, // Regex for replacing addition symbol with a space
                 search = /([^&=]+)=?([^&]*)/g,
-                decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+                decode = function(s) { return decodeURIComponent(s.replace(pl, " ")); },
                 query = window.location.search.substring(1);
 
             while (match = search.exec(query))
@@ -43,23 +43,24 @@ define(['jquery', 'CookieMap', 'text!game/templates/topBar.html', 'text!game/tem
 
         var cookies = cookieMap(document.cookie);
 
-        var postData = {
-            userID: cookies.userID,
-            username: cookies.username,
-            token: cookies.token,
-            gameID: this.urlParams['gameID']
-        };
+        console.log(Object.keys(cookies));
 
+        var postData = {};
+        postData.userID = cookies.userID;
+        postData.username = cookies.username;
+        postData.token = cookies.token;
+        postData.gameID = this.urlParams['gameID'];
+        
         $.ajax({
-        url: 'http://ec2-23-20-199-252.compute-1.amazonaws.com/diplomacy/DiplomacyServer/api/gameData.php',
-        type: 'POST',
-        dataType: 'json',
-        data: postData
-    }).done(mapGameData(this)).fail(function (errorData) {
+            url: 'http://ec2-23-20-199-252.compute-1.amazonaws.com/diplomacy/DiplomacyServer/api/gameData.php',
+            type: 'POST',
+            dataType: 'json',
+            data: postData
+        }).done(mapGameData(this)).fail(function(errorData) {
 
-    });
+        });
     }
-    
+
     return DiplomacyGame;
-    
+
 });
