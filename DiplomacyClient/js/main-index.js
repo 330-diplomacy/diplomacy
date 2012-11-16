@@ -11,9 +11,9 @@ require(["jquery", "jquery-ui-1.9.0", 'index/jquery-login', 'index/jquery-regist
             console.log("Got a login!!!!!!111!!!1");
             $("#user").hide();
             $("#matches").show();
-            console.log(event.message.userID);
-            console.log(event.message.username);
-            console.log(event.message.token);
+            document.cookie = "userID=" + event.message.userID;
+            document.cookie = "username=" + event.message.username;
+            document.cookie = "token=" + event.message.token;
         });
     });
 });

@@ -1,6 +1,6 @@
 ﻿/// <reference path="../require-jquery.intellisense.js" />
 
-define(['jquery', 'text!game/templates/topBar.html', 'text!game/templates/map.html', 'text!game/templates/orders.html'], function ($, topBarTemplate, gameMapTemplate, ordersTemplate) {
+define(['jquery', 'CookieMap', 'text!game/templates/topBar.html', 'text!game/templates/map.html', 'text!game/templates/orders.html'], function ($, cookieMap, topBarTemplate, gameMapTemplate, ordersTemplate) {
 
     function mapGameData(dg) {
         return function (gameData) {
@@ -40,14 +40,21 @@ define(['jquery', 'text!game/templates/topBar.html', 'text!game/templates/map.ht
             while (match = search.exec(query))
                 dg.urlParams[decode(match[1])] = decode(match[2]);
         })(this);
-        
+
+        var cookies = cookieMap(document.cookie);
+
+        var postData = {
+            userID: cookies.userID,
+            username: cookies.username,
+            token: cookies.token,
+            gameID: this.urlParams['gameID']
+        };
+
         $.ajax({
         url: 'http://ec2-23-20-199-252.compute-1.amazonaws.com/diplomacy/DiplomacyServer/api/gameData.php',
         type: 'POST',
         dataType: 'json',
-        data: {
-            gameID: this.urlParams['gameID']
-        }
+        data: postData
     }).done(mapGameData(this)).fail(function (errorData) {
 
     });
