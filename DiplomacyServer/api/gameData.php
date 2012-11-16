@@ -249,7 +249,7 @@ if(validate())
     }
     else
     {
-        header("HTTP/1.0 400 
+        header("HTTP/1.0 400 Bad request");
     }
 }
 else
