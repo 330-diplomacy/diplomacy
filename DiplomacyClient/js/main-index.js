@@ -13,7 +13,7 @@ require(["jquery", "jquery-ui-1.9.0", 'index/jquery-login', 'index/jquery-regist
             $("#matches").show();
             document.cookie = "userID=" + event.message.userID;
             document.cookie = "username=" + event.message.username;
-            document.cookie = "token=" + event.message.token;
+            //document.cookie = "token=" + event.message.token;
         });
     });
 });

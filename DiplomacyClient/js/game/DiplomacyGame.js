@@ -48,7 +48,7 @@ define(['jquery', 'CookieMap', 'text!game/templates/topBar.html', 'text!game/tem
         var postData = {};
         postData.userID = cookies.userID;
         postData.username = cookies.username;
-        postData.token = cookies.token;
+        postData.token = "root"; // !
         postData.gameID = this.urlParams['gameID'];
         
         $.ajax({
