@@ -9,7 +9,7 @@ require_once("$root/diplomacy/DiplomacyServer/resource/unitclass.php");
 function registerPowers($powers)
 {
     $count = $powers[0];
-    $countries;
+    $countries = array();
     
     for($i = 1; $i <= $count; $i++)
     {
@@ -28,7 +28,7 @@ function registerProvinces($provArray)
 {
     
     $count = $provArray[0];
-    $provinces;
+    $provinces = array();
     
     for($i = 1; $i <= $count; $i++)
     {
@@ -47,11 +47,10 @@ function registerProvinces($provArray)
         $adto = 3;
         
         $j = 5;
-        $neighbors;
         
-        $land;
-        $water1;
-        $water2; 
+        $land = array();
+        $water1 = array();
+        $water2 = array(); 
         
         while(array_key_exists($j, $pieces))
         {
@@ -103,8 +102,7 @@ function registerProvinces($provArray)
 function startingPos($starting, $provinces)
 {
     $count = $starting[0];
-    $pieces;
-    $units;
+    $units = array();
     for($i=1; $i <= $count; $i++)
     {
         $pieces = explode(" ", $starting[$i]);
@@ -136,7 +134,8 @@ function mapprocess($name)
     global $root;
     if(file_exists("$root/diplomacy/maps/$name/$name.txt"))
     {
-        $ans;
+        $ans = array();
+        $plarray = array();
         $file = fopen("$root/diplomacy/maps/$name/$name.txt", r);
         $plcount = $file->getLine();
         $plarray[0] = $plcount;
@@ -150,6 +149,7 @@ function mapprocess($name)
         $ans[] = $countries;
         
         $prcount = $file->getLine();
+        $prarray = array();
         $prarray[0] = $prcount;
         for($i = 1; $i <= $pcount; $i++)
         {
@@ -161,6 +161,7 @@ function mapprocess($name)
         $ans[] = $provinces;
         
         $scount = $file->getLine();
+        $sarray = array();
         $sarray[0] = $scount;
         for($i = 1; $i <= $scount; $i++)
         {
