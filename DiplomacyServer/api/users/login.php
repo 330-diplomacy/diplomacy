@@ -58,10 +58,10 @@ function login($username, $pw)
 	}
 }
         
-if(isset($_POST["username"]) && isset($_POST["pw"]))
+if(isset($_POST["username"]) && isset($_POST["password"]))
 {
 	$user=htmlentities($_POST["username"]);
-	$pw=$_POST["pw"];
+	$pw=$_POST["password"];
 
 	login($user, $pw);
 }
