@@ -171,6 +171,8 @@ function mapprocess($name)
         $starting = startingPos($sarray);
         
         $ans[] = $starting;
+        echo("ans: ");
+        echo($ans);
        
         return $ans;
         
