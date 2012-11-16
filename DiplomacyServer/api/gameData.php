@@ -2,6 +2,7 @@
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 require_once("$root/diplomacy/DiplomacyServer/resource/database.php");
 require_once("$root/diplomacy/DiplomacyServer/api/users/validate.php");
+require_once("$root/diplomacy/DiplomacyServer/api/users/login.php");
 
 header("Access-Control-Allow-Origin: http://lvh.me:12262");
 header("Access-Control-Allow-Credentials: true");
@@ -13,14 +14,16 @@ class stateInfo
     public $url;
     public $width;
     public $height;
+    public $data;
     
-    public function __construct($name, $phase, $url, $x, $y)
+    public function __construct($name, $phase, $url, $x, $y, $data)
     {
         $this->gameName = $name;
         $this->phase = $phase;
         $this->url = $url;
         $this->width = $x;
         $this->height = $y;
+        $this->data = $data;
     }
 }
 
@@ -73,12 +76,14 @@ class provInfo
     public $name;
     public $abrv;
     public $type;
+    public $owner;
     
-    public function __construct($name, $ab, $type)
+    public function __construct($name, $ab, $type, $owner)
     {
         $this->name=$name;
         $this->abrv=$ab;
         $this->type=$type;
+        $this->owner=$owner;
     }
 }
 
@@ -126,7 +131,7 @@ function getBoard($gameID)
     
     $provlist->close();
     
-    $unitlist = $mysqli->prepare("SELECT type, powerid, locationid FROM units WHERE gameid=?");
+    $unitlist = $mysqli->prepare("SELECT type, powerid, locationid, ownerid FROM units WHERE gameid=?");
     if(!$unitlist)
     {
         $err = "Query Prep Failed: ";
@@ -140,12 +145,12 @@ function getBoard($gameID)
     $unitlist->bind_param("i", $gameID);
     $unitlist->execute();
     
-    $unitlist->bind_result($type, $power, $loc);
+    $unitlist->bind_result($type, $power, $loc, $owner);
     $units;
     
     while($unitlist->fetch())
     {
-        $temp = new unitInfo($type, $power, $loc);
+        $temp = new unitInfo($type, $power, $loc, $owner);
         $units[] = $temp;
     }
     
@@ -222,7 +227,13 @@ function getState($gameID)
     $variantData->bind_result($path, $xdim, $ydim);
     $variantData->fetch();
     
-    return new stateInfo($name, $phase, $path, $xdim, $ydim);
+    $_SESSION["token"] = rand();
+    $_SESSION["userID"] = $_POST["userID"];
+    $_SESSION["username"] = $_POST["username"];
+    
+    $data = new loginInfo($_POST["userID"], $_POST["username"], $_SESSION["token"]);
+    
+    return new stateInfo($name, $phase, $path, $xdim, $ydim, $data);
 }
 
 

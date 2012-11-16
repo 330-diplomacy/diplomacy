@@ -48,9 +48,10 @@ function login($username, $pw)
 		$_SESSION["token"] = rand();
 
 		$info = new loginInfo($id, $user, $_SESSION["token"]);
-		echo json_encode($info);
+		
 
 		header("HTTP/1.0 200 OK");
+        echo json_encode($info);
 	}
 	else
 	{	
