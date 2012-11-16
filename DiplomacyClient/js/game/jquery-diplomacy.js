@@ -3,7 +3,7 @@
 
 define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function ($, jqueryUI, DiplomacyGame) {
 
-    function onDiplomacyGameLoad() {
+    function onDiplomacyGameLoad(diplomacyGame) {
         // Each of these functions should probably do a this.each() - but we're not going to.
         $.fn.diplomacyTopBar = function () {
             // "this" references the navbar div.
@@ -44,5 +44,5 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function ($, jque
         console.log("Jquery Diplomacy Functions ready!");
     }
 
-    var diplomacyGame = new DiplomacyGame(onDiplomacyGameLoad);
+    return new DiplomacyGame(onDiplomacyGameLoad);
 });
