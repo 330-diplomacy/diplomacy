@@ -1,6 +1,7 @@
 <?php
 
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+require_once("$root/diplomacy/DiplomacyServer/resource/database.php");
 require_once("$root/diplomacy/DiplomacyServer/api/game/mapparse.php");
 
 function newGame($name, $variant)
