@@ -42,14 +42,7 @@ function newGame($name, $variant)
 
     $players = $info[0];
     $provinces = $info[1];
-    $units = $info[2];
-    
-    echo json_encode($players);
-    echo (" | ");
-    echo json_encode($provinces);
-    echo (" | ");
-    echo json_encode($units);
-    
+    $units = $info[2];    
     
     foreach($players as $current)
     {
@@ -66,6 +59,8 @@ function newGame($name, $variant)
         
         $addPower->bind_param("sisi", $current->power, $current->powernum, $current->powercolor, $gameID);
         $addPower->execute();
+        
+        echo($mysqli->error);
         
         if($mysqli->affected_rows == 0)
         {
