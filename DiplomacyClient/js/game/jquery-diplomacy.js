@@ -49,7 +49,7 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function ($, jque
             }
 
             $.each(diplomacyGame.mapData.provinces, function (index, value) {
-                var destHtmlString = '<option id="order-dest-prov-' + value.name + '" class="order-dest-prov" value="' + value.abrv + '">' + value.name + '</option>';
+                var destHtmlString = '<option id="order-dest-prov-' + value.abrv + '" class="order-dest-prov" value="' + value.abrv + '">' + value.name + '</option>';
                 $("#issueOrderDest").append(destHtmlString);
                 if (value.type === 0) {
                     $('#order-dest-prov-' + value.abrv).addClass("order-dest-prov-land");
