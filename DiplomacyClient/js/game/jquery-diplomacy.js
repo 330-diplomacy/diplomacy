@@ -42,8 +42,8 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function ($, jque
             // Setup jquery on this div.
 
             $.each(diplomacyGame.mapData.provinces, function(index, value) {
-                var htmlString = '<option id="order-dest-prov-' + value.abrv + '" class="order-dest-prov" value="' + value.abrv + '">' + value.name + '</option>';
-                $("#issueOrderDest").append(htmlString);
+                var destHtmlString = '<option id="order-dest-prov-' + value.abrv + '" class="order-dest-prov" value="' + value.abrv + '">' + value.name + '</option>';
+                $("#issueOrderDest").append(destHtmlString);
                 if (value.type === 0) {
                     $('#order-dest-prov-' + value.abrv).addClass("order-dest-prov-water");
                 }
@@ -54,6 +54,14 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function ($, jque
                     $('#order-dest-prov-' + value.abrv).addClass("order-dest-prov-coastal");
                 }
             });
+
+            for (var mUI = 0; mUI < diplomacyGame.myUnits.length; mUI++) {
+                var mU = diplomacyGame.myUnits[mUI];
+                var unitType = (mU.type === 1) ? "Army" : "Fleet";
+                var unitHtmlString = '<option id="order-unit-' + mU.location + '" class="order-unit value="' + mU.location + '">' + unitType + ' in ' + mU.location + '</option>';
+                $("#issueOrderUnit").append(unitHtmlString);
+                
+            }
         };
         console.log("Jquery Diplomacy Functions ready!");
     }
