@@ -131,11 +131,11 @@ function startingPos($starting, $provinces)
         
         if($type == "F")
         {
-            $type == 1;
+            $type = 1;
         }
         else
         {
-            $type == 0;
+            $type = 0;
         }
         
 
