@@ -126,6 +126,9 @@ function startingPos($starting, $provinces)
         $location = $pieces[2];
         rtrim($location);
         
+        echo("Type: ");
+        echo($type);
+        
         if($type == "F")
         {
             $type == 1;
