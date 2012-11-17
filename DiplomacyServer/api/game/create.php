@@ -13,8 +13,6 @@ function newGame($name, $variant)
     global $mysqli;
     
     $info = mapprocess($variant);
-    echo("Info: ");
-    echo json_encode($info);
     
     $owner = $_POST["userID"];
     $phase = "WFPl";
@@ -45,6 +43,13 @@ function newGame($name, $variant)
     $players = $info[0];
     $provinces = $info[1];
     $units = $info[2];
+    
+    echo json_encode($players);
+    echo (" | ");
+    echo json_encode($provinces);
+    echo (" | ");
+    echo json_encode($units);
+    
     
     foreach($players as $current)
     {
@@ -83,8 +88,6 @@ function newGame($name, $variant)
             header("HTTP/1.0 500 Internal Server Error Create Game 2");
             return false;
         }
-        echo("name: ");
-        echo($current->name);
         
         $addProvince->bind_param("issiii", $gameID, $current->name, $curren->abrv, $current->type, $current->isdepot, $current->homedepot);
         $addProvince->execute();
