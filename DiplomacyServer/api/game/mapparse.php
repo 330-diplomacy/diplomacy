@@ -132,44 +132,43 @@ function startingPos($starting, $provinces)
 function mapprocess($name)
 {
     global $root;
-    $filename = "http://ec2-23-20-199-252.compute-1.amazonaws.com/diplomacy/DiplomacyServer/resource/Maps/";
-    $filename += "$name/$name.txt";
-    if(file_exists("$root/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt"))
+    $filename = "$root/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt";
+    
+    if(file_exists($filename))
     {
         $ans = array();
         $plarray = array();
         $file = fopen($filename, "r");
-        echo($filename);
-        $plcount = $file->fgets();
+        $plcount = fgets($file);
 
         $plarray[0] = $plcount;
         for($i = 1; $i <= $pcount; $i++)
         {
-            $temp = $file->fgets();
+            $temp = fgets($file);
             $plarray[$i] = $temp;            
         }
         
         $countries = registerPowers($plarray);
         $ans[] = $countries;
         
-        $prcount = $file->fgets();
+        $prcount = fgets($file);
         $prarray = array();
         $prarray[0] = $prcount;
         for($i = 1; $i <= $pcount; $i++)
         {
-            $temp = $file->fgets();
+            $temp = fgets($file);
             $prarray[$i] = $temp;
         }
         
         $provinces = registerProvinces($prarray);
         $ans[] = $provinces;
         
-        $scount = $file->fgets();
+        $scount = fgets($file);
         $sarray = array();
         $sarray[0] = $scount;
         for($i = 1; $i <= $scount; $i++)
         {
-            $temp = $file->fgets();
+            $temp = fgets($file);
             $sarray[$i] = $temp;
         }
         
