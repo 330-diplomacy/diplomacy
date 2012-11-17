@@ -131,9 +131,7 @@ function startingPos($starting, $provinces)
 
 function mapprocess($name)
 {
-    global $root;
-    
-    $filename = "$root/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt";
+    $filename = "http://ec2-23-20-199-252.compute-1.amazonaws.com/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt";
     if(file_exists($filename))
     {
         $ans = array();
