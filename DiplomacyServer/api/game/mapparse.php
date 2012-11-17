@@ -14,12 +14,17 @@ function registerPowers($powers)
     for($i = 1; $i <= $count; $i++)
     {
         $pieces = explode(" ", $powers[$i]);
-        $temp = new player($pieces[0], $pieces[1], $pieces[2]);
-        echo("Creating power: ");
-        echo json_encode($temp);
+        $name = $pieces[0];
+        $number = $pieces[1];
+        $color = $pieces[2];
+        rtrim($name);
+        rtrim($number);
+        rtrim($color);
+        
+        $temp = new player($name, $number, $color);
         $countries[$i] = $temp;
     }
-    
+    echo json_encode($countries);
     return $countries;
 }
 
@@ -36,10 +41,15 @@ function registerProvinces($provArray)
     {
         $pieces = explode(", ", $provArray[$i]);
         $name = $pieces[0];
+        rtrim($name);
         $abrv = $pieces[1];
+        rtrim($abrv);
         $type = $pieces[2];
+        rtrim($type);
         $isDepot = $pieces[3];
+        rtrim($isDepot);
         $homedepot = $pieces[4];
+        rtrim($homedepot);
         
         //Adto state controller. Uses an int to change state for the switch below
         //0 - add to land
@@ -57,6 +67,7 @@ function registerProvinces($provArray)
         while(array_key_exists($j, $pieces))
         {
             $temp = $pieces[$j];
+            rtrim($temp);
             $ctrl = FALSE;
             switch($temp)
             {
@@ -97,10 +108,8 @@ function registerProvinces($provArray)
         }
         $prov = new province($name, $abrv, $type, $isDepot, $homedepot, $land, $water1, $water2);
         $provinces[$name] = $prov;
-        echo("Creating province: ");
-        echo json_encode($temp);
     }
-    
+    echo json_encode($provinces);
     return $provinces;
 }
 
@@ -113,8 +122,11 @@ function startingPos($starting, $provinces)
         $pieces = explode(" ", $starting[$i]);
         
         $type = $pieces[0];
+        rtrim($type);
         $owner = $pieces[1];
+        rtrim($owner);
         $location = $pieces[2];
+        rtrim($location);
         
         if($type == "F")
         {
@@ -128,8 +140,6 @@ function startingPos($starting, $provinces)
 
         $temp = new unit($type, $owner, $location);
         $provinces[$location]->unit=$temp;
-        echo("Creating unit: ");
-        echo json_encode($temp);
         $units[] = $temp;  
     }
     
