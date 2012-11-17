@@ -47,7 +47,7 @@
     <Compile Include="resource\database.php">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="resource\Maps\moveclasses.php">
+    <Compile Include="resource\moveclasses.php">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="resource\playerclass.php">

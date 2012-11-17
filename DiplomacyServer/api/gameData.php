@@ -105,7 +105,7 @@ function getBoard($gameID)
 {
     global $mysqli;
     
-    $provlist = $mysqli->prepare("SELECT name, abrv, type FROM provinces WHERE gameid=?");
+    $provlist = $mysqli->prepare("SELECT name, abrv, type, ownerid FROM provinces WHERE gameid=?");
     if(!$provlist)
     {
         $err = "Query Prep Failed: ";
@@ -119,19 +119,19 @@ function getBoard($gameID)
     $provlist->bind_param("i", $gameID);
     $provlist->execute();
     
-    $provlist->bind_result($name, $abrv, $type);
+    $provlist->bind_result($name, $abrv, $type, $owner);
     
     $provinces;
     
     while($provlist->fetch())
     {
-        $temp = new provInfo($name, $abrv, $type);
+        $temp = new provInfo($name, $abrv, $type, $owner);
         $provinces[] = $temp;
     }
     
     $provlist->close();
     
-    $unitlist = $mysqli->prepare("SELECT type, powerid, locationid, ownerid FROM units WHERE gameid=?");
+    $unitlist = $mysqli->prepare("SELECT type, powerid, locationid FROM units WHERE gameid=?");
     if(!$unitlist)
     {
         $err = "Query Prep Failed: ";
@@ -145,12 +145,12 @@ function getBoard($gameID)
     $unitlist->bind_param("i", $gameID);
     $unitlist->execute();
     
-    $unitlist->bind_result($type, $power, $loc, $owner);
+    $unitlist->bind_result($type, $power, $loc);
     $units;
     
     while($unitlist->fetch())
     {
-        $temp = new unitInfo($type, $power, $loc, $owner);
+        $temp = new unitInfo($type, $power, $loc);
         $units[] = $temp;
     }
     
