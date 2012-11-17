@@ -57,10 +57,9 @@ function newGame($name, $variant)
             return false;
         }
         
-        $addPower->bind_param("sisi", $current->power, $current->powernum, $current->powercolor, $gameID);
+        $addPower->bind_param("sisi", $current->power, $current->pnum, $current->powercolor, $gameID);
         $addPower->execute();
         
-        echo($mysqli->error);
         
         if($mysqli->affected_rows == 0)
         {
@@ -84,7 +83,7 @@ function newGame($name, $variant)
             return false;
         }
         
-        $addProvince->bind_param("issiii", $gameID, $current->name, $curren->abrv, $current->type, $current->isdepot, $current->homedepot);
+        $addProvince->bind_param("issiii", $gameID, $current->name, $curren->abrv, $current->type, $current->isDepot, $current->homedepot);
         $addProvince->execute();
         
         if($mysqli->affected_rows == 0)
@@ -108,7 +107,7 @@ function newGame($name, $variant)
             return false;
         }
         
-        $addUnit->bind_param("iisi", $current->type, $current->ownerid, $current->locationid, $gameID);
+        $addUnit->bind_param("iisi", $current->type, $current->ownerint, $current->location, $gameID);
         $addUnit->execute();
         
         if($mysqli->affected_rows == 0)
