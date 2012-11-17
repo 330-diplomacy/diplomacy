@@ -15,6 +15,8 @@ function registerPowers($powers)
     {
         $pieces = explode(" ", $powers[$i]);
         $temp = new player($pieces[0], $pieces[1], $pieces[2]);
+        echo("Creating power: ");
+        echo json_encode($temp);
         $countries[$i] = $temp;
     }
     
@@ -95,6 +97,8 @@ function registerProvinces($provArray)
         }
         $prov = new province($name, $abrv, $type, $isDepot, $homedepot, $land, $water1, $water2);
         $provinces[$name] = $prov;
+        echo("Creating province: ");
+        echo json_encode($temp);
     }
     
     return $provinces;
@@ -124,6 +128,8 @@ function startingPos($starting, $provinces)
 
         $temp = new unit($type, $owner, $location);
         $provinces[$location]->unit=$temp;
+        echo("Creating unit: ");
+        echo json_encode($temp);
         $units[] = $temp;  
     }
     

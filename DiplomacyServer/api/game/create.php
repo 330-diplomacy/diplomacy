@@ -39,13 +39,6 @@ function newGame($name, $variant)
         header("HTTP/1.0 409 Conflict Create Game 1");
         return false;
     }
-
-    $players = $info[0];
-    $provinces = $info[1];
-    $units = $info[2];
-    
-    echo("prov: ");
-    echo($provinces[1]);
     
     foreach($provinces as $current)
     {
@@ -73,7 +66,7 @@ function newGame($name, $variant)
     
     foreach($units as $current)
     {
-        $addUnit = $mysqli->prepare("INSERT INTO units (type, ownerint, locationid, gameid) VALUES (?, ?, ?, ?)");
+        $addUnit = $mysqli->prepare("INSERT INTO units (type, powerid, locationid, gameid) VALUES (?, ?, ?, ?)");
         if(!$addUnit)
         {
             $err = "Query Prep Failed: ";
