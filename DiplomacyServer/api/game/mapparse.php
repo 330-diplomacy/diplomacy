@@ -139,9 +139,9 @@ function mapprocess($name)
         $ans = array();
         $plarray = array();
         $file = fopen($filename, "r");
-        
-        $plcount = $file->fgets();
         echo($filename);
+        $plcount = $file->fgets();
+
         $plarray[0] = $plcount;
         for($i = 1; $i <= $pcount; $i++)
         {
