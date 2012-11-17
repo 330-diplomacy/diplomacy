@@ -64,27 +64,33 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function ($, jque
                     $('#order-dest-prov-' + value.abrv).addClass("order-dest-prov-two-coast");
                 }
             });
-            
-            if($('#issueOrderUnit > li').first().attr("data-unitType") == "1")      // Fleet
+
+            var firstUnit = $('#issueOrderUnit > option').first();
+
+            console.log(firstUnit);
+
+            if (firstUnit.attr("data-unitType") == "1")      // Fleet
             {
                 $(".order-dest-prov-water").removeAttr("disabled");
                 $(".order-dest-prov-land").attr("disabled", "disabled");
                 $("#order-cmd-convoy").removeAttr("disabled");
             } else {
-                $(".order-dest-prov-water").removeAttr("disabled");
-                $(".order-dest-prov-land").attr("disabled", "disabled");
-                $("#order-cmd-convoy").attr("disabled");
+                $(".order-dest-prov-water").attr("disabled", "disabled");
+                $(".order-dest-prov-land").removeAttr("disabled");
+                $("#order-cmd-convoy").attr("disabled", "disabled");
             }
 
             $("#issueOrderUnit").change(function () {
-                if ($(this).attr('data-unitType') == "1") {
+                console.log("CHANGED UNIT");
+                console.log($("#issueOrderUnit:selected"));
+                if ($("#issueOrderUnit > option:selected").attr('data-unitType') == "1") {
                     $(".order-dest-prov-water").removeAttr("disabled");
                     $(".order-dest-prov-land").attr("disabled", "disabled");
                     $("#order-cmd-convoy").removeAttr("disabled");
                 } else {
-                    $(".order-dest-prov-water").removeAttr("disabled");
-                    $(".order-dest-prov-land").attr("disabled", "disabled");
-                    $("#order-cmd-convoy").attr("disabled");
+                    $(".order-dest-prov-water").attr("disabled", "disabled");
+                    $(".order-dest-prov-land").removeAttr("disabled");
+                    $("#order-cmd-convoy").attr("disabled", "disabled");
                 }
             });
 
