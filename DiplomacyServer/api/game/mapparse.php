@@ -14,7 +14,7 @@ function registerPowers($powers)
     for($i = 1; $i <= $count; $i++)
     {
         $pieces = explode(" ", $powers[$i]);
-        $temp = new player($piece[0], $pieces[1], $pieces[3]);
+        $temp = new player($pieces[0], $pieces[1], $pieces[3]);
         $countries[$i] = $temp;
     }
     
@@ -142,7 +142,7 @@ function mapprocess($name)
         $plcount = fgets($file);
 
         $plarray[0] = $plcount;
-        for($i = 1; $i <= $pcount; $i++)
+        for($i = 1; $i <= $plcount; $i++)
         {
             $temp = fgets($file);
             $plarray[$i] = $temp;            
@@ -154,7 +154,7 @@ function mapprocess($name)
         $prcount = fgets($file);
         $prarray = array();
         $prarray[0] = $prcount;
-        for($i = 1; $i <= $pcount; $i++)
+        for($i = 1; $i <= $prcount; $i++)
         {
             $temp = fgets($file);
             $prarray[$i] = $temp;
@@ -172,7 +172,7 @@ function mapprocess($name)
             $sarray[$i] = $temp;
         }
         
-        $starting = startingPos($sarray);
+        $starting = startingPos($sarray, $provinces);
         
         $ans[] = $starting;
         echo("ans: ");
