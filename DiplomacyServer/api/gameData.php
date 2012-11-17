@@ -77,13 +77,17 @@ class provInfo
     public $abrv;
     public $type;
     public $owner;
+    public $xloc;
+    public $yloc;
     
-    public function __construct($name, $ab, $type, $owner)
+    public function __construct($name, $ab, $type, $owner, $xloc, $yloc);
     {
         $this->name=$name;
         $this->abrv=$ab;
         $this->type=$type;
         $this->owner=$owner;
+        $this->xloc=$xloc;
+        $this->yloc=$yloc;
     }
 }
 
@@ -105,7 +109,7 @@ function getBoard($gameID)
 {
     global $mysqli;
     
-    $provlist = $mysqli->prepare("SELECT name, abrv, type, ownerid FROM provinces WHERE gameid=?");
+    $provlist = $mysqli->prepare("SELECT name, abrv, type, ownerid, xpos, ypos FROM provinces WHERE gameid=?");
     if(!$provlist)
     {
         $err = "Query Prep Failed: ";
@@ -119,13 +123,18 @@ function getBoard($gameID)
     $provlist->bind_param("i", $gameID);
     $provlist->execute();
     
-    $provlist->bind_result($name, $abrv, $type, $owner);
+    $provlist->bind_result($name, $abrv, $type, $owner, $xloc, $yloc);
+    
+    if(is_null($owner))
+    {
+        $owner = 0;
+    }
     
     $provinces;
     
     while($provlist->fetch())
     {
-        $temp = new provInfo($name, $abrv, $type, $owner);
+        $temp = new provInfo($name, $abrv, $type, $owner, $xloc, $yloc);
         $provinces[] = $temp;
     }
     
