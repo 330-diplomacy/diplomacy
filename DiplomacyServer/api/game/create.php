@@ -39,11 +39,13 @@ function newGame($name, $variant)
         header("HTTP/1.0 409 Conflict Create Game 1");
         return false;
     }
-    echo("prov: ");
-    echo($provinces[1]);
+
     $players = $info[0];
     $provinces = $info[1];
     $units = $info[2];
+    
+    echo("prov: ");
+    echo($provinces[1]);
     
     foreach($provinces as $current)
     {
@@ -82,7 +84,7 @@ function newGame($name, $variant)
             return false;
         }
         
-        $addUnit->bind_param("iiii", $current->type, $current->ownerid, $current->locationid, $gameID);
+        $addUnit->bind_param("iisi", $current->type, $current->ownerid, $current->locationid, $gameID);
         $addUnit->execute;
         
         if($mysqli->affected_rows == 0)
