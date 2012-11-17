@@ -85,7 +85,7 @@ function newGame($name, $variant)
             return false;
         }
         
-        $addProvince->bind_param("issiii", $gameID, $current->name, $current->abrv, $current->type, $current->isDepot, $current->homedepot);
+        $addProvince->bind_param("issiii", $gameID, $current->name, $current->abrv, $current->type, $current->isDepot, $current->homeDepot);
         $addProvince->execute();
         
         echo($mysqli->error);
