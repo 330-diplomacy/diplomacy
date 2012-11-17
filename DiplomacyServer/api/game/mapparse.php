@@ -24,7 +24,6 @@ function registerPowers($powers)
         $temp = new player($name, $number, $color);
         $countries[$i] = $temp;
     }
-    echo json_encode($countries);
     return $countries;
 }
 
@@ -85,7 +84,7 @@ function registerProvinces($provArray)
                     break;
             }
             
-            if(!$ctrl)
+            if(!$ctrl AND $temp != "\n")
             {
                 switch($adto)
                 {
@@ -107,9 +106,8 @@ function registerProvinces($provArray)
             $j++;
         }
         $prov = new province($name, $abrv, $type, $isDepot, $homedepot, $land, $water1, $water2);
-        $provinces[$name] = $prov;
+        $provinces[$i] = $prov;
     }
-    echo json_encode($provinces);
     return $provinces;
 }
 
@@ -142,7 +140,6 @@ function startingPos($starting, $provinces)
         $provinces[$location]->unit=$temp;
         $units[] = $temp;  
     }
-    
     return $units;
 }
 
@@ -192,8 +189,6 @@ function mapprocess($name)
         $starting = startingPos($sarray, $provinces);
         
         $ans[] = $starting;
-        echo("ans: ");
-        echo($ans);
        
         return $ans;
         

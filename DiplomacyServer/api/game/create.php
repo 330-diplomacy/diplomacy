@@ -46,8 +46,30 @@ function newGame($name, $variant)
     $provinces = $info[1];
     $units = $info[2];
     
-    echo("prov: ");
-    echo json_encode($provinces);
+    foreach($players as $current)
+    {
+        $addPower = $mysqli->prepare("INSERT INTO powers (powername, powernum, powercolor, gameID) VALUES (?, ?, ?, ?)");
+        if(!$addPower)
+        {
+            $err = "Query Prep Failed: ";
+            $err .= $mysqli->error;
+            
+            echo($err);
+            header("HTTP/1.0 500 Internal Server Error Create Game 4");
+            return false;
+        }
+        
+        $addPower->bind_param("sisi", $current->power, $current->powernum, $current->powercolor, $gameID);
+        $addPower->execute();
+        
+        if($mysqli->affected_rows == 0)
+        {
+            header("HTTP/1.0 409 Conflict Create Game 4");
+            return false;
+        }
+        $addPower->close();
+    }
+            
     
     foreach($provinces as $current)
     {
@@ -61,6 +83,8 @@ function newGame($name, $variant)
             header("HTTP/1.0 500 Internal Server Error Create Game 2");
             return false;
         }
+        echo("name: ");
+        echo($current->name);
         
         $addProvince->bind_param("issiii", $gameID, $current->name, $curren->abrv, $current->type, $current->isdepot, $current->homedepot);
         $addProvince->execute();
