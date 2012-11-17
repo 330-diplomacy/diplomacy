@@ -131,14 +131,15 @@ function startingPos($starting, $provinces)
 
 function mapprocess($name)
 {
-    global $root;
-    if(file_exists("$root/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt"))
+    $filename = "http://ec2-23-20-199-252.compute-1.amazonaws.com/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt";
+    if(file_exists("/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt"))
     {
         $ans = array();
         $plarray = array();
-        $file = fopen("$root/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt", "r");
-        
+        $file = fopen($filename, "r");
+        echo($filename);
         $plcount = $file->fgets();
+
         $plarray[0] = $plcount;
         for($i = 1; $i <= $pcount; $i++)
         {
