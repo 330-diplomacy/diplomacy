@@ -2,7 +2,7 @@
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 require_once("$root/diplomacy/DiplomacyServer/resource/database.php");
 require_once("$root/diplomacy/DiplomacyServer/api/users/validate.php");
-require_once("$root/diplomacy/DiplomacyServer/api/users/login.php");
+require_once("$root/diplomacy/DiplomacyServer/api/users/loginInfo.php");
 
 header("Access-Control-Allow-Origin: http://lvh.me:12262");
 header("Access-Control-Allow-Credentials: true");
@@ -261,7 +261,7 @@ if(validate())
     }
     else
     {
-        header("HTTP/1.0 400 Bad request");
+        header("HTTP/1.0 400 Bad request Gamedata 1");
     }
 }
 else
