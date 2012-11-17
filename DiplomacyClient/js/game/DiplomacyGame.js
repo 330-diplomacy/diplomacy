@@ -8,6 +8,21 @@ define(['jquery', 'CookieMap', 'text!game/templates/topBar.html', 'text!game/tem
             dg.playerData = gameData.playerList;
             dg.gameState = gameData.state;
 
+            for (var iP = 0; iP < dg.playerData.players.length; iP++) {
+                var p = dg.playerData.players[iP];
+                if (p.username == dg.gameState.data.username) {
+                    dg.myId = p.powernum;
+                }
+            }
+
+            dg.myUnits = [];
+            for (var iU = 0; iU < dg.mapData.units.length; iU++) {
+                var u = dg.mapData.units[iU];
+                if (u.ownernum == dg.myId) {
+                    dg.myUnits.push(u);
+                }
+            }
+
             dg.htmlTemplates = {};
             dg.htmlTemplates.topBar = topBarTemplate.replace('%GAMENAME%', dg.gameState.gameName).replace('%GAMEPHASE%', dg.gameState.phase);
             dg.htmlTemplates.gameMap = gameMapTemplate.replace('%MAPURL%', dg.gameState.url).replace('%MAPWIDTH%', dg.gameState.width).replace('%MAPHEIGHT%', dg.gameState.height);

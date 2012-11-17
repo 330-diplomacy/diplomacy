@@ -123,4 +123,15 @@
     <Folder Include="js\game\templates" />
     <Folder Include="js\index\templates" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="js\game\jquery-chat.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\game\jquery-map.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\game\jquery-orders.js">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
 </Project>

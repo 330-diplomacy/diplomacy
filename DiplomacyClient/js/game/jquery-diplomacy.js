@@ -40,20 +40,54 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function ($, jque
             this.replaceWith(diplomacyGame.htmlTemplates.gameOrders);
 
             // Setup jquery on this div.
+            for (var mUI = 0; mUI < diplomacyGame.myUnits.length; mUI++) {
+                var mU = diplomacyGame.myUnits[mUI];
+                var unitType = (mU.type === 1) ? "Fleet" : "Army";
+                var unitHtmlString = '<option id="order-unit-' + mU.location + '" class="order-unit value="' + mU.location + '" data-unitType="' + mU.type + '" data-location="' + mU.location + '">' + unitType + ' in ' + mU.location + '</option>';
+                $("#issueOrderUnit").append(unitHtmlString);
+                
+            }
 
-            $.each(diplomacyGame.mapData.provinces, function(index, value) {
-                var htmlString = '<option id="order-dest-prov-' + value.abrv + '" class="order-dest-prov" value="' + value.abrv + '">' + value.name + '</option>';
-                $("#issueOrderDest").append(htmlString);
+            $.each(diplomacyGame.mapData.provinces, function (index, value) {
+                var destHtmlString = '<option id="order-dest-prov-' + value.name + '" class="order-dest-prov" value="' + value.abrv + '">' + value.name + '</option>';
+                $("#issueOrderDest").append(destHtmlString);
                 if (value.type === 0) {
-                    $('#order-dest-prov-' + value.abrv).addClass("order-dest-prov-water");
-                }
-                else if (value.type === 1) {
                     $('#order-dest-prov-' + value.abrv).addClass("order-dest-prov-land");
                 }
-                else if (value.type === 2) {
+                else if (value.type === 1) {
                     $('#order-dest-prov-' + value.abrv).addClass("order-dest-prov-coastal");
                 }
+                else if (value.type === 2) {
+                    $('#order-dest-prov-' + value.abrv).addClass("order-dest-prov-water");
+                }
+                else if (value.type === 3) {
+                    $('#order-dest-prov-' + value.abrv).addClass("order-dest-prov-two-coast");
+                }
             });
+            
+            if($('#issueOrderUnit > li').first().attr("data-unitType") == "1")      // Fleet
+            {
+                $(".order-dest-prov-water").removeAttr("disabled");
+                $(".order-dest-prov-land").attr("disabled", "disabled");
+                $("#order-cmd-convoy").removeAttr("disabled");
+            } else {
+                $(".order-dest-prov-water").removeAttr("disabled");
+                $(".order-dest-prov-land").attr("disabled", "disabled");
+                $("#order-cmd-convoy").attr("disabled");
+            }
+
+            $("#issueOrderUnit").change(function () {
+                if ($(this).attr('data-unitType') == "1") {
+                    $(".order-dest-prov-water").removeAttr("disabled");
+                    $(".order-dest-prov-land").attr("disabled", "disabled");
+                    $("#order-cmd-convoy").removeAttr("disabled");
+                } else {
+                    $(".order-dest-prov-water").removeAttr("disabled");
+                    $(".order-dest-prov-land").attr("disabled", "disabled");
+                    $("#order-cmd-convoy").attr("disabled");
+                }
+            });
+
         };
         console.log("Jquery Diplomacy Functions ready!");
     }
