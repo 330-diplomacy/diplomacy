@@ -138,35 +138,35 @@ function mapprocess($name)
         $plarray = array();
         $file = fopen("$root/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt", "r");
         
-        $plcount = $file->getLine();
+        $plcount = $file->fgets();
         $plarray[0] = $plcount;
         for($i = 1; $i <= $pcount; $i++)
         {
-            $temp = $file->getLine();
+            $temp = $file->fgets();
             $plarray[$i] = $temp;            
         }
         
         $countries = registerPowers($plarray);
         $ans[] = $countries;
         
-        $prcount = $file->getLine();
+        $prcount = $file->fgets();
         $prarray = array();
         $prarray[0] = $prcount;
         for($i = 1; $i <= $pcount; $i++)
         {
-            $temp = $file->getLine();
+            $temp = $file->fgets();
             $prarray[$i] = $temp;
         }
         
         $provinces = registerProvinces($prarray);
         $ans[] = $provinces;
         
-        $scount = $file->getLine();
+        $scount = $file->fgets();
         $sarray = array();
         $sarray[0] = $scount;
         for($i = 1; $i <= $scount; $i++)
         {
-            $temp = $file->getLine();
+            $temp = $file->fgets();
             $sarray[$i] = $temp;
         }
         
