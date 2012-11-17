@@ -13,6 +13,8 @@ function newGame($name, $variant)
     global $mysqli;
     
     $info = mapprocess($variant);
+    echo("Info: ");
+    echo json_encode($info);
     
     $owner = $_POST["userID"];
     $phase = "WFPl";
@@ -39,6 +41,10 @@ function newGame($name, $variant)
         header("HTTP/1.0 409 Conflict Create Game 1");
         return false;
     }
+
+    $players = $info[0];
+    $provinces = $info[1];
+    $units = $info[2];
     
     foreach($provinces as $current)
     {
