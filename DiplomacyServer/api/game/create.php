@@ -13,8 +13,6 @@ function newGame($name, $variant)
     global $mysqli;
     
     $info = mapprocess($variant);
-    echo("info: ");
-    echo($info);
     
     $owner = $_POST["userID"];
     $phase = "WFPl";
@@ -41,7 +39,8 @@ function newGame($name, $variant)
         header("HTTP/1.0 409 Conflict Create Game 1");
         return false;
     }
-    
+    echo("prov: ");
+    echo($provinces[1]);
     $players = $info[0];
     $provinces = $info[1];
     $units = $info[2];
@@ -70,7 +69,7 @@ function newGame($name, $variant)
         $addProvince->close();
     }
     
-    foreach($unit as $current)
+    foreach($units as $current)
     {
         $addUnit = $mysqli->prepare("INSERT INTO units (type, ownerint, locationid, gameid) VALUSE (?, ?, ?, ?)");
         if(!$addUnit)
