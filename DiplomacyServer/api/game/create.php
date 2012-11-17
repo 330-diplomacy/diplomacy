@@ -57,7 +57,7 @@ function newGame($name, $variant)
             return false;
         }
         
-        $addPower->bind_param("sisi", $current->power, $current->pnum, $current->powercolor, $gameID);
+        $addPower->bind_param("sisi", $current->power, $current->pnum, $current->pcolor, $gameID);
         $addPower->execute();
         
         echo($mysqli->error);
