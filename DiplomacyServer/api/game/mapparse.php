@@ -32,7 +32,7 @@ function registerProvinces($provArray)
     
     for($i = 1; $i <= $count; $i++)
     {
-        $pieces = explode(", ", provArray[$i]);
+        $pieces = explode(", ", $provArray[$i]);
         $name = $pieces[0];
         $abrv = $pieces[1];
         $type = $pieces[2];
