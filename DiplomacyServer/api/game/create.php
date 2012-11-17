@@ -46,6 +46,9 @@ function newGame($name, $variant)
     $provinces = $info[1];
     $units = $info[2];
     
+    echo("prov: ");
+    echo json_encode($provinces);
+    
     foreach($provinces as $current)
     {
         $addProvince = $mysqli->prepare("INSERT INTO provinces (gameid, name, abrv, type, isdepot, homedepot) VALUES (?, ?, ?, ?, ?, ?)");
@@ -84,7 +87,7 @@ function newGame($name, $variant)
         }
         
         $addUnit->bind_param("iisi", $current->type, $current->ownerid, $current->locationid, $gameID);
-        $addUnit->execute;
+        $addUnit->execute();
         
         if($mysqli->affected_rows == 0)
         {
