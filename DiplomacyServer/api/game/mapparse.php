@@ -132,13 +132,16 @@ function startingPos($starting, $provinces)
 function mapprocess($name)
 {
     global $root;
-    if(file_exists("$root/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt"))
+    
+    $filename = "$root/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt";
+    if(file_exists($filename))
     {
         $ans = array();
         $plarray = array();
-        $file = fopen("$root/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt", "r");
+        $file = fopen($filename, "r");
         
         $plcount = $file->fgets();
+        echo($filename);
         $plarray[0] = $plcount;
         for($i = 1; $i <= $pcount; $i++)
         {
