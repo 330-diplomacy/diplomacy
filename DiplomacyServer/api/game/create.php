@@ -73,7 +73,7 @@ function newGame($name, $variant)
     
     foreach($units as $current)
     {
-        $addUnit = $mysqli->prepare("INSERT INTO units (type, ownerint, locationid, gameid) VALUSE (?, ?, ?, ?)");
+        $addUnit = $mysqli->prepare("INSERT INTO units (type, ownerint, locationid, gameid) VALUES (?, ?, ?, ?)");
         if(!$addUnit)
         {
             $err = "Query Prep Failed: ";

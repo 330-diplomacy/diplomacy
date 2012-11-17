@@ -80,7 +80,7 @@ class provInfo
     public $xloc;
     public $yloc;
     
-    public function __construct($name, $ab, $type, $owner, $xloc, $yloc);
+    public function __construct($name, $ab, $type, $owner, $xloc, $yloc)
     {
         $this->name=$name;
         $this->abrv=$ab;
