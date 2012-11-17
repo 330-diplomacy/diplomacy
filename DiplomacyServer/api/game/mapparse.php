@@ -132,42 +132,41 @@ function startingPos($starting, $provinces)
 function mapprocess($name)
 {
     global $root;
-    if(file_exists("$root/diplomacy/maps/$name/$name.txt"))
+    if(file_exists("$root/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt"))
     {
         $ans = array();
         $plarray = array();
-        $file = fopen("$root/diplomacy/maps/$name/$name.txt", r);
+        $file = fopen("$root/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt", "r");
         
-        return $file;
-        $plcount = $file->getLine();
+        $plcount = $file->fgets();
         $plarray[0] = $plcount;
         for($i = 1; $i <= $pcount; $i++)
         {
-            $temp = $file->getLine();
+            $temp = $file->fgets();
             $plarray[$i] = $temp;            
         }
         
         $countries = registerPowers($plarray);
         $ans[] = $countries;
         
-        $prcount = $file->getLine();
+        $prcount = $file->fgets();
         $prarray = array();
         $prarray[0] = $prcount;
         for($i = 1; $i <= $pcount; $i++)
         {
-            $temp = $file->getLine();
+            $temp = $file->fgets();
             $prarray[$i] = $temp;
         }
         
         $provinces = registerProvinces($prarray);
         $ans[] = $provinces;
         
-        $scount = $file->getLine();
+        $scount = $file->fgets();
         $sarray = array();
         $sarray[0] = $scount;
         for($i = 1; $i <= $scount; $i++)
         {
-            $temp = $file->getLine();
+            $temp = $file->fgets();
             $sarray[$i] = $temp;
         }
         
@@ -182,7 +181,7 @@ function mapprocess($name)
     }
     else
     {
-        //No such map config file
+        header("HTTP/1.0 400 Bad Request no such config file");
     }
 }
 
