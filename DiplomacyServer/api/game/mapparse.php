@@ -14,7 +14,7 @@ function registerPowers($powers)
     for($i = 1; $i <= $count; $i++)
     {
         $pieces = explode(" ", $powers[$i]);
-        $temp = new player($pieces[0], $pieces[1], $pieces[3]);
+        $temp = new player($pieces[0], $pieces[1], $pieces[2]);
         $countries[$i] = $temp;
     }
     
@@ -32,7 +32,7 @@ function registerProvinces($provArray)
     
     for($i = 1; $i <= $count; $i++)
     {
-        $pieces = explode(", ", $provinces[$i]);
+        $pieces = explode(", ", provArray[$i]);
         $name = $pieces[0];
         $abrv = $pieces[1];
         $type = $pieces[2];
