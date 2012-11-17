@@ -109,7 +109,7 @@ if(validate())
 }
 else
 {
-    
+    header("HTTP/1.0 403 Forbidden Bad Validate create game");
 }
 
 ?>
