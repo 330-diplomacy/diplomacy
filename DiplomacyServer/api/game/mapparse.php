@@ -4,8 +4,6 @@ require_once("$root/diplomacy/DiplomacyServer/resource/playerclass.php");
 require_once("$root/diplomacy/DiplomacyServer/resource/provinceclass.php");
 require_once("$root/diplomacy/DiplomacyServer/resource/unitclass.php");
 
-ini_set("memory_limit","128M");
-
 // takes in an array. Index 0 is the number of powers, then 1 - n are the countries in the
 // form name number color. Returns an array of Player objects with null names and playerIDs
 function registerPowers($powers)
@@ -93,6 +91,7 @@ function registerProvinces($provArray)
                         break;                    
                 }
             }
+            $j++;
         }
         $prov = new province($name, $abrv, $type, $isDepot, $homedepot, $land, $water1, $water2);
         $provinces[$name] = $prov;
