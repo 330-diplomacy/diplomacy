@@ -1,109 +1,109 @@
 7
-russia 1 white
-turkey 2 yellow
-austria-hungary 3 red
-italy 4 green
-germany 5 black
-france 6 blue
-england 7 navy
+russia 1 white 
+turkey 2 yellow 
+austria-hungary 3 red 
+italy 4 green 
+germany 5 black 
+france 6 blue 
+england 7 navy 
 75
-Syria, syr, 1, 0, 0, Armenia, Smyrna, W1: Eastern Mediterranean
-Armenia, arm, 1, 0, 0, Syria, Smyrna, Ankara, Sevastapol, Black Sea
-Sevastapol, sev, 1, 1, 1, Armenia, Rumania, W, Black Sea, L, Ukraine, Moscow
-Moscow, mos, 0, 1, 1, Sevastapol, Ukraine, Warsaw, Livonia, St Petersburg
-St Petersburg, stp, 3, 1, 1, L, Moscow, Livonia, Finland, Norway, W2, Barents Sea, Norway, W1, Finland, Gulf of Bothnia, Livonia
-Barents Sea, bar, 2, 0, 0, St Petersburg NC, Norway, Norwegian Sea
-Eastern Mediterranean, emed, 2, 0, 0, Syria, Smyrna, Aegean Sea, Ionian Sea
-Smyrna, smy, 1, 1, 2, Syria, Eastern Mediterranean, Aegean Sea, Constantinople, L, Ankara, Armenia 
-Ankara, ank, 1, 1, 2, Armenia, Black Sea, Constantinople L, Smyrna
-Black Sea, bla, 2, 0, 0, Sevastapol, Armenia, Ankara, Constantinople, Bulgaria EC, Rumania
-Constantinople, con, 1, 1, 2, Smyrna, Ankara, Aegean Sea, Black Sea L, Bulgaria, w1, Bulgaria EC, Bulgaria SC
-Aegean Sea, aeg, 2, 0, 0, Eastern Mediterranean, Ionian Sea, Smyrna, Constantinople, Bulgaria SC, Greece
-Bulgaria, bul, 3, 1, 0, L, Constantinople, Greece, Serbia, Rumania, W2, Black Sea, Constantinople, Rumania, W1, Aegean Sea, Greece, Constantinople
-Rumania, rum, 1, 1, 0, Black Sea, Bulgaria EC, Serbia, Budapest, Galacia, Ukraine, Sevastapol
-Ukraine, ukr, 0, 0, 0, Sevastapol, Rumania, Galacia, Warsaw, Moscow
-Ionian Sea, ion, 2, 0, 0, Eastern Mediterranean, Aegean Sea, Greece, Albania, Adriatic Sea, Apulia, Naples, Tyrhenian Sea, Tunisia
-Greece, gre, 1, 1, 0, Aegean Sea, Ionian Sea, Albania, Serbia, Bulgaria EC
-Albania, alb, 1, 0, 0, Greece, Ionian Sea, Adriatic Sea, Trieste, Serbia
-Serbia, ser, 0, 1, 0, Bulgaria, Greece, Albania, Trieste, Budapest, Rumania
-Budapest, bud, 0, 1, 3, Rumania, Serbia, Trieste, Vienna, Galacia
-Galacia, gal, 0, 0, 0, Ukraine, Rumania, Budapest, Vienna, Bohemia, Silesia, Warsaw
-Warsaw, war, 0, 1, 1, Moscow, Ukraine, Galacia, Silesia, Prussia, Livonia
-Livonia, liv, 1, 0, 0, Moscow, Warsaw, Prussia, Baltic Sea, Gulf of Bothnia, St Petersburg SC
-Gulf of Bothnia, bot, 2, 0, 0, St Petersburg SC, Livonia, Baltic Sea, Sweden, Finland
-Finland, fin, 1, 0, 0, Sweden, Gulf of Bothnia, St Petersburg SC, L, Norway
-Naples, nap, 1, 1, 4, Rome, Apulia, Ionian Sea, Tyhrenian Sea
-Apulia, apu, 1, 0, 0, Venice, Adriatic Sea, Ionian Sea, Naples, L, Rome
-Adriatic Sea, adr, 2, 0, 0, Albania, Ionian Sea, Apulia, Venice, Trieste
-Trieste, tri, 1, 1, 3, Serbia, Albania, Adriatic Sea, Venice, Tyrolia, Vienna, Budapest
-Vienna, vie, 0, 1, 3, Budapest, Trieste, Tyrolia, Bohemia, Galacia
-Bohemia, boh, 0, 0, 0, Galacia, Vienna, Tyrolia, Munich, Silesia
-Silesia, sil, 0, 0, 0, Warsaw, Galacia, Bohemia, Munich, Berlin, Prussia
-Prussia, pru, 1, 0, 0, Livonia, Warsaw, Silesia, Berlin, Baltic Sea
-Baltic Sea, bal, 2, 0, 0, Livonia, Prussia, Berlin, Kiel, Denmark, Sweden, Gulf of Bothnia
-Sweden, swe, 1, 1, 0, Finland, Gulf of Bothnia, Baltic Sea, Denmark, Skagerrack, Norway
-Tyrhenian Sea, tys, 2, 0, 0, Naples, Ionian Sea, Tunisia, Western Mediterranean, Gulf of Lyons, Tuscany, Rome
-Rome, rom, 1, 1, 4, Naples, Tyrhenian Sea, Tuscany, L, Apulia, Venice
-Tuscany, tus, 1, 0, 0, Rome, Tyrhenian Sea, Gulf of Lyons, Piedmont, L, Venice
-Venice, ven, 1, 1, 4, Trieste, Adriatic Sea, Apulia, L, Rome, Tuscany, Piedmont, Tyrolia
-Tyrolia, tyr, 0, 0, 0, Vienna, Trieste, Venice, Piedmont, Munich, Bohemia
-Munich, mun, 0, 1, 5, Silesia, Bohemia, Tyrolia, Burgundy, Ruhr, Kiel, Berlin
-Berlin, ber, 1, 1, 5, Prussia, Silesia, Munich, Kiel, Baltic Sea
-Kiel, kie, 1, 1, 5, Baltic Sea, Berlin, Munich, Ruhr, Holland, Helgoland Bight, Denmark
-Denmark, den, 1, 1, 0, Sweden, Baltic Sea, Kiel, Helgoland Bight, North Sea, Skagerrack
-Skagerrack, ska, 2, 0, 0, Sweden, Denmark, North Sea, Norway
-Norway, nwy, 1, 1, 0, Sweden, Skagerrack, North Sea Norwegian Sea, Barents Sea, L, Finland
-Norwegian Sea, nwg, 2, 0, 0, Barents Sea, Norway, North Sea, North Atlantic
-Tunisia, tun, 1, 1, 0, Ionian Sea, North Africa, Western Mediterranean, Tyrhenian Sea
-Piedmont, pie, 1, 0, 0, Tuscany, Gulf of Lyons, Marseilles, L, Venice, Tyrolia
-Ruhr, ruh, 0, 0, 0, Kiel, Munich, Burgundy, Belgium, Holland
-Holland, hol, 1, 1, 0, Kiel, Ruhr, Belgium, North Sea, Helgoland Bight
-Helgoland Bight, hel, 2, 0, 0, Denmark, Kiel, Holland, North Sea
-Gulf of Lyons, lyo, 2, 0, 0, Tuscany, Tyhrenian Sea, Western Mediterranean, Spain SC, Marseilles, Piedmont
-Marseilles, mar, 1, 1, 6, Piedmont, Gulf of Lyons, Spain SC, L, Gascony, Burgundy
-Burgundy, bur, 0, 0, 0, Ruhr, Munich, Marseilles, Gascony, Paris, Picardy, Belgium
-Belgium, bel, 1, 1, 0, Holland, Ruhr, Burgundy, Picardy, English Channel, North Sea
-North Sea, nth, 2, 0, 0, Norway, Skagerrack, Denmark, Helgoland Bight, Holland, Belgium, English Channel, London, Yorkshire, Edinburg, Norwegian Sea
-North Africa, naf, 1, 0, 0, Tunisia, Mid Atlantic, Western Mediterranean
-Western Mediterranean, wmed, 2, 0, 0, Tyrhenian Sea, Tunisia, North Africa, Mid Atlantic, Spain SC, Gulf of Lyons
-Gascony, gas, 1, 0, 0, Burgundy, Spain NC, Mid Atlantic, Brest, Paris, L, Marseilles
-Paris, par, 0, 1, 6, Burgundy, Gascony, Brest, Picardy
-Picardy, pic, 1, 0, 0, Belgium, Burgundy, Paris, Brest, English Channel
-Spain, spa, 3, 1, 0, L, Marseilles, Portugal, Gascony, W1, Marseilles, Gulf of Lyon, Western Mediterranean, Mid Atlantic, W2, Gascony, Mid Atlantic, Portugal
-Brest, bre, 1, 1, 6, Picardy, Paris, Gascony, Mid Atlantic, English Channel
-English Channel, eng, 2, 0, 0, North Sea, Belgium, Picardy, Brest, Mid Atlantic, Irish Sea, Wales, London
-London, lon, 1, 1, 7, North Sea, English Channel, Wales, Yorkshire
-Yorkshire, yor, 1, 0, 0, North Sea, London, Edinburgh, L, Wales, Liverpool
-Edinburgh, edi, 1, 1, 7, North Sea, Yorkshire, Clyde, Norwegian Sea, L, Liverpool
-Mid Atlantic, mao, 2, 0, 0, Brest, Gascony, Spain NC, Spain SC, Portugal, North Africa, Western Mediterranean, North Atlantic, Irish Sea, English Channel
-Portugal, por, 1, 1, 0, Spain NC, Spain SC, Mid Atlantic
-Irish Sea, iri, 2, 0, 0, Liverpool, Wales, English Channel, Mid Atlantic, North Atlantic
-Wales, wal, 1, 0, 0, London, English Channel, Irish Sea, Liverpool, L, Yorkshire
-Liverpool, lvp, 1, 1, 7, Wales, Irish Sea, North Atlantic, Clyde, L, Yorkshire, Edinburgh
-Clyde, cly, 1, 0, 0, Edinburgh, Liverpool, North Atlantic, Norwegian Sea
-North Atlantic, nao, 2, 0, 0, Norwegian Sea, Clyde, Liverpool, Irish Sea, Mid Atlantic
-22
-F 1 St Petersburg SC
-F 1 Sevastapol
-A 1 Warsaw
-A 1 Moscow
-F 2 Ankara
-A 2 Constantinople
-A 2 Smyrna
-F 3 Trieste
-A 3 Vienna
-A 3 Budapest
-A 4 Venice
-A 4 Rome
-F 4 Naples
-A 5 Munich
-A 5 Berlin
-F 5 Kiel
-A 6 Marseilles
-A 6 Paris
-F 6 Brest
-A 7 Liverpool
-F 7 London
-F 7 Edinburgh
+Syria, syr, 1, 0, 0, Armenia, Smyrna, W1: Eastern Mediterranean,
+Armenia, arm, 1, 0, 0, Syria, Smyrna, Ankara, Sevastapol, Black Sea,
+Sevastapol, sev, 1, 1, 1, Armenia, Rumania, W, Black Sea, L, Ukraine, Moscow,
+Moscow, mos, 0, 1, 1, Sevastapol, Ukraine, Warsaw, Livonia, St Petersburg,
+St Petersburg, stp, 3, 1, 1, L, Moscow, Livonia, Finland, Norway, W2, Barents Sea, Norway, W1, Finland, Gulf of Bothnia, Livonia,
+Barents Sea, bar, 2, 0, 0, St Petersburg NC, Norway, Norwegian Sea,
+Eastern Mediterranean, emed, 2, 0, 0, Syria, Smyrna, Aegean Sea, Ionian Sea,
+Smyrna, smy, 1, 1, 2, Syria, Eastern Mediterranean, Aegean Sea, Constantinople, L, Ankara, Armenia,
+Ankara, ank, 1, 1, 2, Armenia, Black Sea, Constantinople L, Smyrna,
+Black Sea, bla, 2, 0, 0, Sevastapol, Armenia, Ankara, Constantinople, Bulgaria EC, Rumania,
+Constantinople, con, 1, 1, 2, Smyrna, Ankara, Aegean Sea, Black Sea L, Bulgaria, w1, Bulgaria EC, Bulgaria SC,
+Aegean Sea, aeg, 2, 0, 0, Eastern Mediterranean, Ionian Sea, Smyrna, Constantinople, Bulgaria SC, Greece,
+Bulgaria, bul, 3, 1, 0, L, Constantinople, Greece, Serbia, Rumania, W2, Black Sea, Constantinople, Rumania, W1, Aegean Sea, Greece, Constantinople,
+Rumania, rum, 1, 1, 0, Black Sea, Bulgaria EC, Serbia, Budapest, Galacia, Ukraine, Sevastapol,
+Ukraine, ukr, 0, 0, 0, Sevastapol, Rumania, Galacia, Warsaw, Moscow,
+Ionian Sea, ion, 2, 0, 0, Eastern Mediterranean, Aegean Sea, Greece, Albania, Adriatic Sea, Apulia, Naples, Tyrhenian Sea, Tunisia,
+Greece, gre, 1, 1, 0, Aegean Sea, Ionian Sea, Albania, Serbia, Bulgaria EC,
+Albania, alb, 1, 0, 0, Greece, Ionian Sea, Adriatic Sea, Trieste, Serbia,
+Serbia, ser, 0, 1, 0, Bulgaria, Greece, Albania, Trieste, Budapest, Rumania,
+Budapest, bud, 0, 1, 3, Rumania, Serbia, Trieste, Vienna, Galacia,
+Galacia, gal, 0, 0, 0, Ukraine, Rumania, Budapest, Vienna, Bohemia, Silesia, Warsaw,
+Warsaw, war, 0, 1, 1, Moscow, Ukraine, Galacia, Silesia, Prussia, Livonia,
+Livonia, liv, 1, 0, 0, Moscow, Warsaw, Prussia, Baltic Sea, Gulf of Bothnia, St Petersburg SC,
+Gulf of Bothnia, bot, 2, 0, 0, St Petersburg SC, Livonia, Baltic Sea, Sweden, Finland,
+Finland, fin, 1, 0, 0, Sweden, Gulf of Bothnia, St Petersburg SC, L, Norway,
+Naples, nap, 1, 1, 4, Rome, Apulia, Ionian Sea, Tyhrenian Sea,
+Apulia, apu, 1, 0, 0, Venice, Adriatic Sea, Ionian Sea, Naples, L, Rome,
+Adriatic Sea, adr, 2, 0, 0, Albania, Ionian Sea, Apulia, Venice, Trieste,
+Trieste, tri, 1, 1, 3, Serbia, Albania, Adriatic Sea, Venice, Tyrolia, Vienna, Budapest,
+Vienna, vie, 0, 1, 3, Budapest, Trieste, Tyrolia, Bohemia, Galacia,
+Bohemia, boh, 0, 0, 0, Galacia, Vienna, Tyrolia, Munich, Silesia,
+Silesia, sil, 0, 0, 0, Warsaw, Galacia, Bohemia, Munich, Berlin, Prussia,
+Prussia, pru, 1, 0, 0, Livonia, Warsaw, Silesia, Berlin, Baltic Sea,
+Baltic Sea, bal, 2, 0, 0, Livonia, Prussia, Berlin, Kiel, Denmark, Sweden, Gulf of Bothnia,
+Sweden, swe, 1, 1, 0, Finland, Gulf of Bothnia, Baltic Sea, Denmark, Skagerrack, Norway,
+Tyrhenian Sea, tys, 2, 0, 0, Naples, Ionian Sea, Tunisia, Western Mediterranean, Gulf of Lyons, Tuscany, Rome,
+Rome, rom, 1, 1, 4, Naples, Tyrhenian Sea, Tuscany, L, Apulia, Venice,
+Tuscany, tus, 1, 0, 0, Rome, Tyrhenian Sea, Gulf of Lyons, Piedmont, L, Venice,
+Venice, ven, 1, 1, 4, Trieste, Adriatic Sea, Apulia, L, Rome, Tuscany, Piedmont, Tyrolia,
+Tyrolia, tyr, 0, 0, 0, Vienna, Trieste, Venice, Piedmont, Munich, Bohemia,
+Munich, mun, 0, 1, 5, Silesia, Bohemia, Tyrolia, Burgundy, Ruhr, Kiel, Berlin,
+Berlin, ber, 1, 1, 5, Prussia, Silesia, Munich, Kiel, Baltic Sea,
+Kiel, kie, 1, 1, 5, Baltic Sea, Berlin, Munich, Ruhr, Holland, Helgoland Bight, Denmark,
+Denmark, den, 1, 1, 0, Sweden, Baltic Sea, Kiel, Helgoland Bight, North Sea, Skagerrack,
+Skagerrack, ska, 2, 0, 0, Sweden, Denmark, North Sea, Norway,
+Norway, nwy, 1, 1, 0, Sweden, Skagerrack, North Sea Norwegian Sea, Barents Sea, L, Finland,
+Norwegian Sea, nwg, 2, 0, 0, Barents Sea, Norway, North Sea, North Atlantic,
+Tunisia, tun, 1, 1, 0, Ionian Sea, North Africa, Western Mediterranean, Tyrhenian Sea,
+Piedmont, pie, 1, 0, 0, Tuscany, Gulf of Lyons, Marseilles, L, Venice, Tyrolia,
+Ruhr, ruh, 0, 0, 0, Kiel, Munich, Burgundy, Belgium, Holland,
+Holland, hol, 1, 1, 0, Kiel, Ruhr, Belgium, North Sea, Helgoland Bight,
+Helgoland Bight, hel, 2, 0, 0, Denmark, Kiel, Holland, North Sea,
+Gulf of Lyons, lyo, 2, 0, 0, Tuscany, Tyhrenian Sea, Western Mediterranean, Spain SC, Marseilles, Piedmont,
+Marseilles, mar, 1, 1, 6, Piedmont, Gulf of Lyons, Spain SC, L, Gascony, Burgundy,
+Burgundy, bur, 0, 0, 0, Ruhr, Munich, Marseilles, Gascony, Paris, Picardy, Belgium,
+Belgium, bel, 1, 1, 0, Holland, Ruhr, Burgundy, Picardy, English Channel, North Sea,
+North Sea, nth, 2, 0, 0, Norway, Skagerrack, Denmark, Helgoland Bight, Holland, Belgium, English Channel, London, Yorkshire, Edinburg, Norwegian Sea,
+North Africa, naf, 1, 0, 0, Tunisia, Mid Atlantic, Western Mediterranean,
+Western Mediterranean, wmed, 2, 0, 0, Tyrhenian Sea, Tunisia, North Africa, Mid Atlantic, Spain SC, Gulf of Lyons,
+Gascony, gas, 1, 0, 0, Burgundy, Spain NC, Mid Atlantic, Brest, Paris, L, Marseilles,
+Paris, par, 0, 1, 6, Burgundy, Gascony, Brest, Picardy,
+Picardy, pic, 1, 0, 0, Belgium, Burgundy, Paris, Brest, English Channel,
+Spain, spa, 3, 1, 0, L, Marseilles, Portugal, Gascony, W1, Marseilles, Gulf of Lyon, Western Mediterranean, Mid Atlantic, W2, Gascony, Mid Atlantic, Portugal,
+Brest, bre, 1, 1, 6, Picardy, Paris, Gascony, Mid Atlantic, English Channel,
+English Channel, eng, 2, 0, 0, North Sea, Belgium, Picardy, Brest, Mid Atlantic, Irish Sea, Wales, London,
+London, lon, 1, 1, 7, North Sea, English Channel, Wales, Yorkshire,
+Yorkshire, yor, 1, 0, 0, North Sea, London, Edinburgh, L, Wales, Liverpool,
+Edinburgh, edi, 1, 1, 7, North Sea, Yorkshire, Clyde, Norwegian Sea, L, Liverpool,
+Mid Atlantic, mao, 2, 0, 0, Brest, Gascony, Spain NC, Spain SC, Portugal, North Africa, Western Mediterranean, North Atlantic, Irish Sea, English Channel,
+Portugal, por, 1, 1, 0, Spain NC, Spain SC, Mid Atlantic,
+Irish Sea, iri, 2, 0, 0, Liverpool, Wales, English Channel, Mid Atlantic, North Atlantic,
+Wales, wal, 1, 0, 0, London, English Channel, Irish Sea, Liverpool, L, Yorkshire,
+Liverpool, lvp, 1, 1, 7, Wales, Irish Sea, North Atlantic, Clyde, L, Yorkshire, Edinburgh,
+Clyde, cly, 1, 0, 0, Edinburgh, Liverpool, North Atlantic, Norwegian Sea,
+North Atlantic, nao, 2, 0, 0, Norwegian Sea, Clyde, Liverpool, Irish Sea, Mid Atlantic,
+22 
+F 1 St Petersburg SC 
+F 1 Sevastapol 
+A 1 Warsaw 
+A 1 Moscow 
+F 2 Ankara 
+A 2 Constantinople 
+A 2 Smyrna 
+F 3 Trieste 
+A 3 Vienna 
+A 3 Budapest 
+A 4 Venice 
+A 4 Rome 
+F 4 Naples 
+A 5 Munich 
+A 5 Berlin 
+F 5 Kiel 
+A 6 Marseilles 
+A 6 Paris 
+F 6 Brest 
+A 7 Liverpool 
+F 7 London 
+F 7 Edinburgh 
 
 
