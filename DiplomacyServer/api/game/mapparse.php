@@ -132,11 +132,11 @@ function startingPos($starting, $provinces)
 function mapprocess($name)
 {
     global $root;
-    if(file_exists("$root/diplomacy/DiplomacyServer/Maps/$name/$name.txt"))
+    if(file_exists("$root/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt"))
     {
         $ans = array();
         $plarray = array();
-        $file = fopen("$root/diplomacy/DiplomacyServer/Maps/$name/$name.txt", r);
+        $file = fopen("$root/diplomacy/DiplomacyServer/resource/Maps/$name/$name.txt", r);
         
         return $file;
         $plcount = $file->getLine();
@@ -182,7 +182,7 @@ function mapprocess($name)
     }
     else
     {
-        header("HTTP/1.0 400 Bad Request no such name");
+        header("HTTP/1.0 400 Bad Request no such config file");
     }
 }
 
