@@ -33,6 +33,22 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function ($, jque
             this.replaceWith(diplomacyGame.htmlTemplates.gameMap);
 
             // Setup jquery on this div.
+            
+            // First, create the province-label-abrv tag with the province name, and position them correctly.
+            $.each(diplomacyGame.mapData.provinces, function (index, value) {
+                var provinceId = 'province-label-' + value.abrv;
+                var provinceTitleHtmlString = '<p id="' + provinceId + '" class="province-label">' + value.name + '</p>';
+                $("#map").append(provinceTitleHtmlString);
+                $('#' + provinceId).css("top", value.yloc);
+                $('#' + provinceId).css("left", value.xloc);
+                if (value.owner === -1) {
+                    $('#' + provinceId).css('background-color', 'white');
+                    $('#' + provinceId).css('color', 'black');
+                } else {
+                    $('#' + provinceId).css('background-color', 'darkgrey');
+                    $('#' + provinceId).css('color', diplomacyGame.colorMap['P' + value.owner]);
+                }
+            });
         };
 
         $.fn.diplomacyOrders = function () {
@@ -66,9 +82,7 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function ($, jque
             });
 
             var firstUnit = $('#issueOrderUnit > option').first();
-
-            console.log(firstUnit);
-
+            
             if (firstUnit.attr("data-unitType") == "1")      // Fleet
             {
                 $(".order-dest-prov-water").removeAttr("disabled");

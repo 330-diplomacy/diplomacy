@@ -113,3 +113,7 @@ a#topbarLoginLink {
     text-align: right;
     float: right;
 }
+
+.province-label {
+    position: absolute;
+}
