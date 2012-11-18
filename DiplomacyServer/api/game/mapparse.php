@@ -117,7 +117,7 @@ function startingPos($starting, $provinces)
     $units = array();
     for($i=1; $i <= $count; $i++)
     {
-        $pieces = explode(" ", $starting[$i]);
+        $pieces = explode(",", $starting[$i]);
         
         $type = $pieces[0];
         rtrim($type);
@@ -125,9 +125,8 @@ function startingPos($starting, $provinces)
         rtrim($owner);
         $location = $pieces[2];
         rtrim($location);
-        
-        echo("Type: ");
-        echo($type);
+        $abrv = $pieces[3];
+        rtrin($abrv);
         
         if($type == "F")
         {
@@ -139,7 +138,7 @@ function startingPos($starting, $provinces)
         }
         
 
-        $temp = new unit($type, $owner, $location);
+        $temp = new unit($type, $owner, $location, $abrv);
         $provinces[$location]->unit=$temp;
         $units[] = $temp;  
     }

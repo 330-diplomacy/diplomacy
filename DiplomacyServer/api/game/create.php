@@ -101,7 +101,7 @@ function newGame($name, $variant)
     
     foreach($units as $current)
     {
-        $addUnit = $mysqli->prepare("INSERT INTO units (type, powerid, locationid, gameid) VALUES (?, ?, ?, ?)");
+        $addUnit = $mysqli->prepare("INSERT INTO units (type, powerid, locationid, abrv, gameid) VALUES (?, ?, ?, ?, ?)");
         if(!$addUnit)
         {
             $err = "Query Prep Failed: ";
@@ -112,7 +112,7 @@ function newGame($name, $variant)
             return false;
         }
         
-        $addUnit->bind_param("iisi", $current->type, $current->ownerint, $current->location, $gameID);
+        $addUnit->bind_param("iissi", $current->type, $current->ownerint, $current->location, $current->abrv, $gameID);
         $addUnit->execute();
         
         echo($mysqli->error);

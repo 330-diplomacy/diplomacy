@@ -83,27 +83,27 @@ Liverpool, lvp, 1, 1, 7, Wales, Irish Sea, North Atlantic, Clyde, L, Yorkshire, 
 Clyde, cly, 1, 0, 0, Edinburgh, Liverpool, North Atlantic, Norwegian Sea, 
 North Atlantic, nao, 2, 0, 0, Norwegian Sea, Clyde, Liverpool, Irish Sea, Mid Atlantic, 
 22 
-F 1 St Petersburg SC 
-F 1 Sevastapol 
-A 1 Warsaw 
-A 1 Moscow 
-F 2 Ankara 
-A 2 Constantinople 
-A 2 Smyrna 
-F 3 Trieste 
-A 3 Vienna 
-A 3 Budapest 
-A 4 Venice 
-A 4 Rome 
-F 4 Naples 
-A 5 Munich 
-A 5 Berlin 
-F 5 Kiel 
-A 6 Marseilles 
-A 6 Paris 
-F 6 Brest 
-A 7 Liverpool 
-F 7 London 
-F 7 Edinburgh 
+F,1,St Petersburg SC,stp-sc,
+F,1,Sevastapol,sev,
+A,1,Warsaw,war,
+A,1,Moscow,mos,
+F,2,Ankara,ank,
+A,2,Constantinople,con,
+A,2,Smyrna,smy,
+F,3,Trieste,tri,
+A,3,Vienna,vie,
+A,3,Budapest,bud,
+A,4,Venice,ven,
+A,4,Rome,rom,
+F,4,Naples,nap,
+A,5,Munich,mun,
+A,5,Berlin,ber,
+F,5,Kiel,kie,
+A,6,Marseilles,mar,
+A,6,Paris,par,
+F,6,Brest,bre,
+A,7,Liverpool,liv,
+F,7,London,lon,
+F,7,Edinburgh,edi,
 
 
