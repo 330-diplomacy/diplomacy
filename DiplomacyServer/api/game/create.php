@@ -60,9 +60,6 @@ function newGame($name, $variant)
         $addPower->bind_param("sisi", $current->power, $current->pnum, $current->pcolor, $gameID);
         $addPower->execute();
         
-        echo($mysqli->error);
-        echo(" ");
-        
         if($mysqli->affected_rows == 0)
         {
             header("HTTP/1.0 409 Conflict Create Game 4");
@@ -88,9 +85,6 @@ function newGame($name, $variant)
         $addProvince->bind_param("issiii", $gameID, $current->name, $current->abrv, $current->type, $current->isDepot, $current->homeDepot);
         $addProvince->execute();
         
-        echo($mysqli->error);
-        echo(" ");
-        
         if($mysqli->affected_rows == 0)
         {
             header("HTTP/1.0 409 Conflict Create Game 2");
@@ -114,9 +108,6 @@ function newGame($name, $variant)
         
         $addUnit->bind_param("iissi", $current->type, $current->ownerint, $current->location, $current->abrv, $gameID);
         $addUnit->execute();
-        
-        echo($mysqli->error);
-        echo(" ");
         
         if($mysqli->affected_rows == 0)
         {
