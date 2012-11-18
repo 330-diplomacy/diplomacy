@@ -10,7 +10,7 @@ define(['jquery', 'CookieMap', 'text!game/templates/topBar.html', 'text!game/tem
             dg.colorMap = {};
             for (var iP = 0; iP < dg.playerData.players.length; iP++) {
                 var p = dg.playerData.players[iP];
-                dg.gameState[p.powernum] = p.color;
+                dg.colorMap['P' + p.powernum] = p.color;
                 if (p.username == dg.gameState.data.username) {
                     dg.myId = p.powernum;
                 }

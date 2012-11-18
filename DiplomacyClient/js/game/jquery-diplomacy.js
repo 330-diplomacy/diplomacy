@@ -36,13 +36,18 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function ($, jque
             
             // First, create the province-label-abrv tag with the province name, and position them correctly.
             $.each(diplomacyGame.mapData.provinces, function (index, value) {
-                console.log("province ", index, value);
                 var provinceId = 'province-label-' + value.abrv;
                 var provinceTitleHtmlString = '<p id="' + provinceId + '" class="province-label">' + value.name + '</p>';
                 $("#map").append(provinceTitleHtmlString);
                 $('#' + provinceId).css("top", value.yloc);
                 $('#' + provinceId).css("left", value.xloc);
-                $('#' + provinceId).css('color', value.color);
+                if (value.owner === -1) {
+                    $('#' + provinceId).css('background-color', 'white');
+                    $('#' + provinceId).css('color', 'black');
+                } else {
+                    $('#' + provinceId).css('background-color', 'darkgrey');
+                    $('#' + provinceId).css('color', diplomacyGame.colorMap['P' + value.owner]);
+                }
             });
         };
 
