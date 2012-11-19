@@ -4,3 +4,13 @@
 #matches {
     display: none;
 }
+
+#my-match-div {
+    width: 100%;
+    background-color: greenyellow;
+}
+
+#available-match-div {
+    width: 100%;
+    background-color: lightseagreen;
+}

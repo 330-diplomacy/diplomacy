@@ -133,5 +133,8 @@
     <Content Include="js\game\jquery-orders.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="js\index\fetchGames.js">
+      <SubType>Content</SubType>
+    </Content>
   </ItemGroup>
 </Project>

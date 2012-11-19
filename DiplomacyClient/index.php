@@ -14,7 +14,12 @@
         </div>
         <div id="matches">
             <a href="game.php?gameID=7357">YOU JUST LOST THE GAME</a>
-            <ul id="match-list"></ul>
+            <div id="my-match-div">
+                <ul id="my-match-list"></ul>
+            </div>
+            <div id="available-match-div">
+                <ul id="available-match-list"></ul>
+            </div>
         </div>
     </body>
 </html>
