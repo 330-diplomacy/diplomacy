@@ -38,9 +38,8 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function($, jquer
             $.each(diplomacyGame.mapData.provinces, function(index, value) {
                 var provinceId = 'province-label-' + value.abrv;
                 var provinceDivId = 'province-label-div-' + value.abrv;
-                var provinceSpanId = 'province-label-span-' + value.abrv;
                 console.log(value.name, value.owner);
-                var provinceTitleHtmlString = '<div id="' + provinceDivId + '" class="province-label-div"><span id="' + provinceId + '" class="province-label">' + value.name + '</span></div>';
+                var provinceTitleHtmlString = '<div id="' + provinceDivId + '" class="province-label-div"><span id="' + provinceId + '" class="province-label">' + value.abrv + '</span></div>';
                 $("#map").append(provinceTitleHtmlString);
                 $('#' + provinceDivId).css("top", value.yloc);
                 $('#' + provinceDivId).css("left", value.xloc);
