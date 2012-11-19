@@ -36,7 +36,7 @@ if(validate())
     
     $stmt->execute();
     
-    $stmt->bind_results($id, $name, $owner, $player2, $player3, $player4, $player5, $player6, $player7, $variant, $max);
+    $stmt->bind_result($id, $name, $owner, $player2, $player3, $player4, $player5, $player6, $player7, $variant, $max);
     
     $ans = array();
     
