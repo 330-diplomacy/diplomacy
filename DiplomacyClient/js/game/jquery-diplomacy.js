@@ -59,7 +59,7 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function($, jquer
             // Then, iterate through each unit, and show it on the province it lives in.
             for (var mUI = 0; mUI < diplomacyGame.myUnits.length; mUI++) {
                 var mU = diplomacyGame.myUnits[mUI];
-                var unitType = (mU.type === 1) ? "Fleet" : "Army";
+                var unitType = (mU.type === 1) ? "F" : "A";
                 var unitHtmlString = '<span id="province-label-unit-%ABRV%" class="province-label-unit">%TYPE%</span>';
                 $('#province-label-div-' + mU.abrv).append(unitHtmlString.replace('%ABRV%', mU.abrv).replace('%TYPE%', unitType));
                 $("#province-label-unit-" + mU.abrv).css('color', diplomacyGame.colorMap['P' + mU.ownernum]);
