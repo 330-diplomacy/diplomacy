@@ -96,12 +96,14 @@ class unitInfo
     public $type;
     public $ownernum;
     public $location;
+    public $abrv;
     
-    public function __construct($type, $owner, $loc)
+    public function __construct($type, $owner, $loc, $abrv)
     {
         $this->type = $type;
         $this->ownernum = $owner;
         $this->location = $loc;
+        $this->abrv = $abrv;
     }
 }
 
@@ -140,7 +142,7 @@ function getBoard($gameID)
     
     $provlist->close();
     
-    $unitlist = $mysqli->prepare("SELECT type, powerid, locationid FROM units WHERE gameid=?");
+    $unitlist = $mysqli->prepare("SELECT type, powerid, locationid, abrv FROM units WHERE gameid=?");
     if(!$unitlist)
     {
         $err = "Query Prep Failed: ";
@@ -154,12 +156,12 @@ function getBoard($gameID)
     $unitlist->bind_param("i", $gameID);
     $unitlist->execute();
     
-    $unitlist->bind_result($type, $power, $loc);
+    $unitlist->bind_result($type, $power, $loc, $abrv);
     $units;
     
     while($unitlist->fetch())
     {
-        $temp = new unitInfo($type, $power, $loc);
+        $temp = new unitInfo($type, $power, $loc, $abrv);
         $units[] = $temp;
     }
     
