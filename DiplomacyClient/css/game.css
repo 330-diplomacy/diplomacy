@@ -114,6 +114,11 @@ a#topbarLoginLink {
     float: right;
 }
 
-.province-label {
+.province-label-div {
     position: absolute;
+}
+
+.province-label-unit {
+    padding-left: 7px;
+    font-weight: bold;
 }
