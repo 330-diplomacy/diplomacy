@@ -16,7 +16,7 @@
         });
         
         $.ajax({
-            url: 'http://ec2-23-20-199-252.compute-1.amazonaws.com/diplomacy/DiplomacyServer/api/game/nyGames.php',
+            url: 'http://ec2-23-20-199-252.compute-1.amazonaws.com/diplomacy/DiplomacyServer/api/game/myGames.php',
             type: 'POST',
             dataType: 'json',
             data: loginDetails
