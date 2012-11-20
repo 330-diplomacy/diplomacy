@@ -71,7 +71,7 @@ function newGame($name, $variant)
     
     foreach($provinces as $current)
     {
-        $addProvince = $mysqli->prepare("INSERT INTO provinces (gameid, name, abrv, type, isdepot, homedepot) VALUES (?, ?, ?, ?, ?, ?)");
+        $addProvince = $mysqli->prepare("INSERT INTO provinces (gameid, name, abrv, type, isdepot, homedepot, xpos, ypos) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         if(!$addProvince)
         {
             $err = "Query Prep Failed: ";
@@ -82,7 +82,7 @@ function newGame($name, $variant)
             return false;
         }
         
-        $addProvince->bind_param("issiii", $gameID, $current->name, $current->abrv, $current->type, $current->isDepot, $current->homeDepot);
+        $addProvince->bind_param("issiiiii", $gameID, $current->name, $current->abrv, $current->type, $current->isDepot, $current->homeDepot, $current->x, $current->y);
         $addProvince->execute();
         
         if($mysqli->affected_rows == 0)

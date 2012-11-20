@@ -157,7 +157,7 @@ function getBoard($gameID)
     $unitlist->execute();
     
     $unitlist->bind_result($type, $power, $loc, $abrv);
-    $units;
+    $units = array();
     
     while($unitlist->fetch())
     {
