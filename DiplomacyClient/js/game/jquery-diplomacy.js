@@ -1,7 +1,7 @@
 ﻿/// <reference path="../jquery-1.8.2.intellisense.js" />
 /// <reference path="../require-jquery.intellisense.js" />
 
-define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function($, jqueryUI, DiplomacyGame) {
+define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame', 'game/renderChat'], function($, jqueryUI, DiplomacyGame, renderChat) {
 
     function onDiplomacyGameLoad(diplomacyGame) {
         // Each of these functions should probably do a this.each() - but we're not going to.
@@ -21,11 +21,30 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function($, jquer
             });
         };
 
-        $.fn.diplomacyGameChat = function() {
+        $.fn.diplomacyChat = function () {
+            console.log('diplomacyChat called', diplomacyGame.htmlTemplates.chat);
             // "this" references the chat div.
-            this.replaceWith(diplomacyGame.htmlTemplates.gameChat);
+            this.replaceWith(diplomacyGame.htmlTemplates.chat);
 
             // Setup jquery on this div.
+            $('#chatMsgSend').button();
+            $('#chatMsgSend').click(function () {
+                var messageData = {
+                    userID: diplomacyGame.gameState.data.userID,
+                    username: diplomacyGame.gameState.data.username,
+                    token: diplomacyGame.gameState.data.token,
+                    msg: $("#chatMsgText").val()
+                };
+                $.ajax({
+                    url: 'http://ec2-23-20-199-252.compute-1.amazonaws.com/diplomacy/DiplomacyServer/api/chat/send.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: messageData
+                }).done(function(data) {
+                    $("#chatMsgText").val('');
+                });
+            });
+            renderChat();
         };
 
         $.fn.diplomacyMap = function() {
@@ -79,7 +98,7 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function($, jquer
             }
 
             $.each(diplomacyGame.mapData.provinces, function(index, value) {
-                var destHtmlString = '<option id="order-dest-prov-' + value.abrv + '" class="order-dest-prov" value="' + value.abrv + '">' + value.name + '</option>';
+                var destHtmlString = '<option id="order-dest-prov-' + value.abrv + '" class="order-dest-prov" value="' + value.abrv + '" data-location="' + value.name +'">' + value.name + '</option>';
                 $("#issueOrderDest").append(destHtmlString);
                 if (value.type === 0) {
                     $('#order-dest-prov-' + value.abrv).addClass("order-dest-prov-land");
@@ -119,6 +138,24 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function($, jquer
                 }
             });
 
+            $('#issueOrderSubmit').click(function() {
+                var orderData = {
+                    userID: diplomacyGame.gameState.data.userID,
+                    username: diplomacyGame.gameState.data.username,
+                    token: diplomacyGame.gameState.data.token,
+                    from: $('#issueOrderUnit > option:selected').attr('data-location'),
+                    move: $('#issueOrderMoveType > option:selected').val(),
+                    to: $('#issueOrderDest > option:selected').attr('data-location')
+                };
+                $.ajax({
+                    url: 'http://ec2-23-20-199-252.compute-1.amazonaws.com/diplomacy/DiplomacyServer/api/sendMove.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: orderData
+                }).done(function (data) {
+                    console.log('submitted move:', data);
+                });
+            });
         };
         console.log("Jquery Diplomacy Functions ready!");
     }
