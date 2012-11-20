@@ -1,6 +1,6 @@
 ﻿/// <reference path="../require-jquery.intellisense.js" />
 
-define(['jquery', 'CookieMap', 'text!game/templates/topBar.html', 'text!game/templates/map.html', 'text!game/templates/orders.html'], function($, cookieMap, topBarTemplate, gameMapTemplate, ordersTemplate) {
+define(['jquery', 'CookieMap', 'game/parseChat', 'text!game/templates/topBar.html', 'text!game/templates/map.html', 'text!game/templates/orders.html', 'text!game/templates/chat.html'], function($, cookieMap, parseChat, topBarTemplate, gameMapTemplate, ordersTemplate, chatTemplate) {
 
     function mapGameData(dg) {
         return function(gameData) {
@@ -23,11 +23,16 @@ define(['jquery', 'CookieMap', 'text!game/templates/topBar.html', 'text!game/tem
                     dg.myUnits.push(u);
                 }
             }
+            
+            if (dg.gameState.newMessages) {
+                parseChat();
+            }
 
             dg.htmlTemplates = {};
             dg.htmlTemplates.topBar = topBarTemplate.replace('%GAMENAME%', dg.gameState.gameName).replace('%GAMEPHASE%', dg.gameState.phase);
             dg.htmlTemplates.gameMap = gameMapTemplate.replace('%MAPURL%', dg.gameState.url).replace('%MAPWIDTH%', dg.gameState.width).replace('%MAPHEIGHT%', dg.gameState.height);
             dg.htmlTemplates.gameOrders = ordersTemplate;
+            dg.htmlTemplates.chat = chatTemplate;
             dg.ready = true;
             console.log(dg);
             dg.readyCallback(dg);

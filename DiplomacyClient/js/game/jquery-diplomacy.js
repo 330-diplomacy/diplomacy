@@ -1,7 +1,7 @@
 ﻿/// <reference path="../jquery-1.8.2.intellisense.js" />
 /// <reference path="../require-jquery.intellisense.js" />
 
-define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function($, jqueryUI, DiplomacyGame) {
+define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame', 'game/renderChat'], function($, jqueryUI, DiplomacyGame, renderChat) {
 
     function onDiplomacyGameLoad(diplomacyGame) {
         // Each of these functions should probably do a this.each() - but we're not going to.
@@ -21,11 +21,30 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame'], function($, jquer
             });
         };
 
-        $.fn.diplomacyGameChat = function() {
+        $.fn.diplomacyChat = function () {
+            console.log('diplomacyChat called', diplomacyGame.htmlTemplates.chat);
             // "this" references the chat div.
-            this.replaceWith(diplomacyGame.htmlTemplates.gameChat);
+            this.replaceWith(diplomacyGame.htmlTemplates.chat);
 
             // Setup jquery on this div.
+            $('#chatMsgSend').button();
+            $('#chatMsgSend').click(function () {
+                var messageData = {
+                    userID: diplomacyGame.gameState.data.userID,
+                    username: diplomacyGame.gameState.data.username,
+                    token: diplomacyGame.gameState.data.token,
+                    msg: $("#chatMsgText").val()
+                };
+                $.ajax({
+                    url: 'http://ec2-23-20-199-252.compute-1.amazonaws.com/diplomacy/DiplomacyServer/api/chat/send.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: messageData
+                }).done(function(data) {
+                    $("#chatMsgText").val('');
+                });
+            });
+            renderChat();
         };
 
         $.fn.diplomacyMap = function() {
