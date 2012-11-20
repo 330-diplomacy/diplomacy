@@ -19,7 +19,7 @@
                 <input id="newGameVariant" type="text" value="standard" />
                 <button id="newGameSubmit">Create</button>
             </div>
-            <a href="game.php?gameID=7357">YOU JUST LOST THE GAME</a>
+            <a href="game.php?gameID=7416">YOU JUST LOST THE GAME</a>
             <div id="my-match-div">
                 <ul id="my-match-list"></ul>
             </div>
