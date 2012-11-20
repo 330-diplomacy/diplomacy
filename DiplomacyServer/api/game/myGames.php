@@ -23,7 +23,7 @@ class gameListData
 
 if(validate())
 {
-    $stmt = $mysqli->prepare("SELECT id, name, owner, player2, player3, player4, player5, player6, player7, variant, maxplayers FROM games WHERE owner = ? OR player1 = ? or player2 = ? or player3 = ? or player4 = ? or player5 = ? or player6 = ?");
+    $stmt = $mysqli->prepare("SELECT id, name, owner, player2, player3, player4, player5, player6, player7, variant, maxplayers FROM games WHERE owner = ? OR player2 = ? or player3 = ? or player4 = ? or player5 = ? or player6 = ? or player7 = ?");
     if(!$stmt)
     {
 		$err = "Query Prep Failed: ";
