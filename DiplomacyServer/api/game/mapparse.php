@@ -54,6 +54,9 @@ function registerProvinces($provArray)
         $ydim = $pieces[6];
         rtrim($ydim);
         
+        echo("y $ydim");
+        echo(" | x $xdim");
+        
         //Adto state controller. Uses an int to change state for the switch below
         //0 - add to land
         //1 - add to water 1
