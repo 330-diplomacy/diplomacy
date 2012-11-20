@@ -130,7 +130,7 @@ function startingPos($starting, $provinces)
         $location = $pieces[2];
         rtrim($location);
         $abrv = $pieces[3];
-        rtrin($abrv);
+        rtrim($abrv);
         
         if($type == "F")
         {
