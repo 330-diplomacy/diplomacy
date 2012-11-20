@@ -98,7 +98,7 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame', 'game/renderChat']
             }
 
             $.each(diplomacyGame.mapData.provinces, function(index, value) {
-                var destHtmlString = '<option id="order-dest-prov-' + value.abrv + '" class="order-dest-prov" value="' + value.abrv + '">' + value.name + '</option>';
+                var destHtmlString = '<option id="order-dest-prov-' + value.abrv + '" class="order-dest-prov" value="' + value.abrv + '" data-location="' + value.name +'">' + value.name + '</option>';
                 $("#issueOrderDest").append(destHtmlString);
                 if (value.type === 0) {
                     $('#order-dest-prov-' + value.abrv).addClass("order-dest-prov-land");
@@ -138,6 +138,24 @@ define(['jquery', '../jquery-ui-1.9.0', 'game/DiplomacyGame', 'game/renderChat']
                 }
             });
 
+            $('#issueOrderSubmit').click(function() {
+                var orderData = {
+                    userID: diplomacyGame.gameState.data.userID,
+                    username: diplomacyGame.gameState.data.username,
+                    token: diplomacyGame.gameState.data.token,
+                    from: $('#issueOrderUnit > option:selected').attr('data-location'),
+                    move: $('#issueOrderMoveType > option:selected').val(),
+                    to: $('#issueOrderDest > option:selected').attr('data-location')
+                };
+                $.ajax({
+                    url: 'http://ec2-23-20-199-252.compute-1.amazonaws.com/diplomacy/DiplomacyServer/api/sendMove.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: orderData
+                }).done(function (data) {
+                    console.log('submitted move:', data);
+                });
+            });
         };
         console.log("Jquery Diplomacy Functions ready!");
     }
