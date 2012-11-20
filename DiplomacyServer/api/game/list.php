@@ -23,7 +23,7 @@ class gameListData
 
 if(validate())
 {
-    $stmt = $mysqli->preapre("SELECT id, name, owner, player2, player3, player4, player5, player6, player7, variant, maxplayers FROM games");
+    $stmt = $mysqli->prepare("SELECT id, name, owner, player2, player3, player4, player5, player6, player7, variant, maxplayers FROM games");
     if(!$stmt)
     {
 		$err = "Query Prep Failed: ";
@@ -36,7 +36,7 @@ if(validate())
     
     $stmt->execute();
     
-    $stmt->bind_results($id, $name, $owner, $player2, $player3, $player4, $player5, $player6, $player7, $variant, $max);
+    $stmt->bind_result($id, $name, $owner, $player2, $player3, $player4, $player5, $player6, $player7, $variant, $max);
     
     $ans = array();
     
