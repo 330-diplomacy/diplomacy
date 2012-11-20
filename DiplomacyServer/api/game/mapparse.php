@@ -49,6 +49,10 @@ function registerProvinces($provArray)
         rtrim($isDepot);
         $homedepot = $pieces[4];
         rtrim($homedepot);
+        $xdim = $pieces[5];
+        rtrim($xdim);
+        $ydim = $pieces[6];
+        rtrim($ydim);
         
         //Adto state controller. Uses an int to change state for the switch below
         //0 - add to land
@@ -57,7 +61,7 @@ function registerProvinces($provArray)
         //3 - inititial option, add to water1 and land
         $adto = 3;
         
-        $j = 5;
+        $j = 7;
         
         $land = array();
         $water1 = array();
@@ -105,7 +109,7 @@ function registerProvinces($provArray)
             }
             $j++;
         }
-        $prov = new province($name, $abrv, $type, $isDepot, $homedepot, $land, $water1, $water2);
+        $prov = new province($name, $abrv, $type, $isDepot, $homedepot, $land, $water1, $water2, $xdim, $ydim);
         $provinces[$i] = $prov;
     }
     return $provinces;

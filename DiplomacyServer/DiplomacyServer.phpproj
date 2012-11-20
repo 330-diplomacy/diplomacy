@@ -37,6 +37,9 @@
     <Compile Include="api\users\login.php">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="api\users\loginInfo.php">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="api\users\register.php">
       <SubType>Code</SubType>
     </Compile>
@@ -64,7 +67,7 @@
     <Content Include="resource\Maps\standard\standard.gif">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="resource\Maps\standard\standard_config.txt">
+    <Content Include="resource\Maps\standard\standard.txt">
       <SubType>Content</SubType>
     </Content>
     <Content Include="standard.gif">
